@@ -1,0 +1,17 @@
+<div  style="width:100%;height:100%;background: #dcdcdc url('/images/login_background.jpg') center no-repeat;position: absolute;">
+  <div class="login-container">
+    <img src="/img/login_icon.png" class="login-container__icon">
+    <h4> Marketing Magazyn </h4>
+    <div class="container__form row">
+    <form class="form-signin panel-body">
+      <div class="form-group">
+        <input type="text" class="form__login form-control" placeholder="login" ng-model="id" ng-keydown="$event.which === 13 && login()">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form__password form-control" placeholder="hasło" ng-model="password" ng-keydown="$event.which === 13 && login()">
+      </div>
+      <input type="button" class="btn btn-lg btn-primary form__button center-block" type="submit" value="Log in" ng-click="login()">
+    </form>
+    </div>
+  </div>
+</div>
