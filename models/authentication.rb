@@ -5,14 +5,29 @@ class Authentication
 
     if !params[:login].nil? && !params[:password].nil?
 
-      sql = 'SELECT '
-      ldap = Connector::Ldap.new(:login => params[:login],
-                                 :password => params[:password])
-      if ldap.authentication
-        authenticated_ppl(ldap.data)
+      sql = { statement: 'SELECT * FROM accounts where login = $1',
+              values: [params[:login]] }
+      result = Tools.sql_query(sql)
+
+      if result.count == 1
+        username = result[0]['login']
+
+        sql = { statement: 'SELECT * FROM accounts where login = $1 AND password = $2',
+                values: [username, params[:password]] }
+        result = Tools.sql_query(sql)
+        result.each do |a|
+          puts a
+        end
+        if result.count == 1
+          '1'
+        else
+          '-2'
+        end
+
       else
         '-2' # wrong login/pass
       end
+
     else
       '-1' # nil in login/pass
     end

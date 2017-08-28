@@ -49,6 +49,20 @@ angular.module('Warehouse', ['ui.router', 'ngSanitize'])
                 }
             })
 
+            .state('management', {
+                url: '/authenticated',
+                views: {
+                    headerView: {
+                      templateUrl: 'views/protected/menu',
+                      controller: 'MenuController'
+                    },
+                    mainView: {
+                        templateUrl: 'views/protected/management',
+                        controller: 'ManagementController'
+                    }
+                }
+            })
+
             .state('error_404', {
                 url: '/404',
                 views: {

@@ -3,6 +3,6 @@ module Params
     PG_HOST = 'localhost'
     PG_PORT = 5432
     PG_DB_NAME = 'harmonogram'
-    PG_USER = 'zdalnie'
-    PG_PASSWORD = 'zdalnie'
+    PG_USER = 'postgres'
+    PG_PASSWORD = 'postgres'
 end

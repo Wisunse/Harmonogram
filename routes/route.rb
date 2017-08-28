@@ -41,16 +41,8 @@ class App
       case params[:view]
       when 'menu'
         erb :menu, layout: false
-      when 'current_state'
-        erb :current_state, layout: false
-      when 'give'
-        erb :give, layout: false
-      when 'beneficiary_list'
-        erb :beneficiary_list, layout: false
-      when 'targets'
-        erb :targets, layout: false
-      when 'history'
-        erb :history, layout: false
+      when 'management'
+        erb :management, layout: false
       else
         erb :error_404, layout: false
       end
@@ -59,36 +51,36 @@ class App
     end
   end
 
-  get '/views/modal/:view' do
-    if session[:authenticated]
-      case params[:view]
-      when 'add_new_item'
-        erb :'modal/add_new_item', layout: false
-      when 'add_to_item'
-        erb :'modal/add_to_item', layout: false
-      when 'give_item'
-        erb :'modal/give_item', layout: false
-      when 'add_new_beneficiary'
-        erb :'modal/add_new_beneficiary', layout: false
-      when 'edit_item'
-        erb :'modal/edit_item', layout: false
-      when 'edit_beneficiary'
-        erb :'modal/edit_beneficiary', layout: false
-      when 'add_new_target'
-        erb :'modal/add_new_target', layout: false
-      when 'edit_target'
-        erb :'modal/edit_target', layout: false
-      when 'show_target_details'
-        erb :'modal/show_target_details', layout: false
-      when 'history_edit'
-        erb :'modal/history_edit', layout: false
-      else
-        erb :error_404, layout: false
-      end
-    else
-      redirect '/login'
-    end
-  end
+  # get '/views/modal/:view' do
+  #   if session[:authenticated]
+  #     case params[:view]
+  #     when 'add_new_item'
+  #       erb :'modal/add_new_item', layout: false
+  #     when 'add_to_item'
+  #       erb :'modal/add_to_item', layout: false
+  #     when 'give_item'
+  #       erb :'modal/give_item', layout: false
+  #     when 'add_new_beneficiary'
+  #       erb :'modal/add_new_beneficiary', layout: false
+  #     when 'edit_item'
+  #       erb :'modal/edit_item', layout: false
+  #     when 'edit_beneficiary'
+  #       erb :'modal/edit_beneficiary', layout: false
+  #     when 'add_new_target'
+  #       erb :'modal/add_new_target', layout: false
+  #     when 'edit_target'
+  #       erb :'modal/edit_target', layout: false
+  #     when 'show_target_details'
+  #       erb :'modal/show_target_details', layout: false
+  #     when 'history_edit'
+  #       erb :'modal/history_edit', layout: false
+  #     else
+  #       erb :error_404, layout: false
+  #     end
+  #   else
+  #     redirect '/login'
+  #   end
+  # end
 
   get '/is_loggin' do
     { loggin: session[:authenticated], data: session[:user_data] }.to_json
@@ -108,28 +100,6 @@ class App
       response = { status: result, authentication: session[:authenticated] }
     end
     response.to_json
-  end
-
-
-
-  get '/all_beneficiary' do
-    check_login!
-    Products.all_beneficiary.to_a.to_json
-  end
-
-  get '/all_targets' do
-    check_login!
-    Targets.all_targets.to_a.to_json
-  end
-
-  get '/current_status' do
-    check_login!
-    Products.current_status.to_a.to_json
-  end
-
-  get '/history' do
-    check_login!
-    History.history.to_a.to_json
   end
 
   get '/log_out' do

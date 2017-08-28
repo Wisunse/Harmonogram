@@ -17,7 +17,7 @@ angular.module('Warehouse')
 
                         switch(response.data.status) {
                             case '1':
-                                $state.go('current_state');
+                                $state.go('harmonogram_state');
                                 break;
                             case '-1':
                                 alert('puste pole id, albo hasła');
