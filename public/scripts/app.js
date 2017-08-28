@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Warehouse', ['ui.router', 'ngSanitize', 'ui.bootstrap', 'angularModalService'])
+angular.module('Warehouse', ['ui.router', 'ngSanitize'])
 
     .config(['$stateProvider', '$locationProvider', '$urlRouterProvider', '$httpProvider', function($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider) {
 
@@ -60,10 +60,22 @@ angular.module('Warehouse', ['ui.router', 'ngSanitize', 'ui.bootstrap', 'angular
 
         $urlRouterProvider.otherwise('/404');
 
+        // $mdThemingProvider.theme('default')
+        //     .primaryPalette('grey', {
+        //         'default': '900',
+        //         'hue-1': '100',
+        //         'hue-2': '600',
+        //         'hue-3': 'A100'
+        //     }) .accentPalette('yellow', {
+        //     'default': 'A200'
+        // }) .warnPalette('red');
+
+        // .backgroundPalette('grey');
+
     }])
 
-    .run(['$rootScope', '$state', '$stateParams', '$http', 'products',
-        function ($rootScope, $state, $stateParams, $http, products) {
+    .run(['$rootScope', '$state', '$stateParams', '$http',
+        function ($rootScope, $state, $stateParams, $http) {
 
             $rootScope.state = $state;
             $rootScope.stateParams = $stateParams;

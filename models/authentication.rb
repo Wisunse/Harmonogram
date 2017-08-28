@@ -1,14 +1,11 @@
 class Authentication
 
-  def self.authenticated_ppl(data)
-    authentication_list = ['Krzysztof Nowak', 'Agnieszka Bylica', 'Michał Bryndza', 'Filip Dyduch', 'Mateusz Mydlarz']
-    authentication_list.include?(data[:full_name]) ? result = data : result = '-3' # no permission
-    result
-  end
-
   def self.authentication(params = {})
 
+
     if !params[:login].nil? && !params[:password].nil?
+
+      sql = 'SELECT '
       ldap = Connector::Ldap.new(:login => params[:login],
                                  :password => params[:password])
       if ldap.authentication

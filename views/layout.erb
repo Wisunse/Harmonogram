@@ -4,17 +4,14 @@
 
   <head>
 
-    <title> Marketing Magazyn </title>
+    <title> Harmonogram </title>
 
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <% if ENV['RACK_ENV'] == 'production' %>
         <link rel="stylesheet" property="stylesheet" href="stylesheet/application.min.css">
     <% else %>
-        <!--<link rel="stylesheet" property="stylesheet" href="stylesheet/libs/bootstrap.min.css">-->
-        <!--<link rel="stylesheet" property="stylesheet" href="stylesheet/css/main.css">-->
-        <!--<link rel="stylesheet" property="stylesheet" href="stylesheet/css/menu.css">-->
-        <!--<link rel="stylesheet" property="stylesheet" href="stylesheet/css/login.css">-->
+
     <% end %>
 
     <link rel="shortcut icon" href="img/icon3.png">
@@ -29,23 +26,27 @@
 
   <% if ENV['RACK_ENV'] == 'production' %>
 
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>-->
 
     <script src="scripts/application.min.js"></script>
 
     <% else %>
 
+    <script src="scripts/libs/jquery-3.2.1.min.js"></script>
     <script src="scripts/libs/angular.min.js"></script>
     <script src="scripts/libs/angular-ui-router.min.js"></script>
     <script src="scripts/libs/angular-sanitize.min.js"></script>
+    <script src="scripts/libs/angular-animate.min.js"></script>
+    <script src="scripts/libs/angular-aria.min.js"></script>
+    <!--<script src="scripts/libs/angular-material.min.js"></script>-->
+
 
     <script src="scripts/app.js"></script>
 
     <script src="scripts/controllers/main.controller.js"></script>
-
+    <script src="scripts/controllers/login.controller.js"></script>
 
   <% end %>
 
