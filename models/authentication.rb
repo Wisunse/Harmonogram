@@ -15,9 +15,7 @@ class Authentication
         sql = { statement: 'SELECT * FROM accounts where login = $1 AND password = $2',
                 values: [username, params[:password]] }
         result = Tools.sql_query(sql)
-        result.each do |a|
-          puts a
-        end
+
         if result.count == 1
           '1'
         else

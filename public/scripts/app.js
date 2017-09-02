@@ -1,8 +1,9 @@
 'use strict';
 
-angular.module('Warehouse', ['ui.router', 'ngSanitize'])
+angular.module('Harmonogram', ['ui.router', 'ngSanitize', 'ngMaterial', 'ngAnimate', 'ngAria', 'ngMessages'])
 
-    .config(['$stateProvider', '$locationProvider', '$urlRouterProvider', '$httpProvider', function($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider) {
+    .config(['$stateProvider', '$locationProvider', '$urlRouterProvider', '$httpProvider', '$mdThemingProvider',
+        function($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider, $mdThemingProvider) {
 
         $httpProvider.interceptors.push(['$injector', '$q', function ($injector, $q) {
             return {
@@ -63,6 +64,20 @@ angular.module('Warehouse', ['ui.router', 'ngSanitize'])
                 }
             })
 
+            .state('users', {
+                url: '/authenticated',
+                views: {
+                    headerView: {
+                        templateUrl: 'views/protected/menu',
+                        controller: 'MenuController'
+                    },
+                    mainView: {
+                        templateUrl: 'views/protected/users',
+                        controller: 'UsersController'
+                    }
+                }
+            })
+
             .state('error_404', {
                 url: '/404',
                 views: {
@@ -74,17 +89,15 @@ angular.module('Warehouse', ['ui.router', 'ngSanitize'])
 
         $urlRouterProvider.otherwise('/404');
 
-        // $mdThemingProvider.theme('default')
-        //     .primaryPalette('grey', {
-        //         'default': '900',
-        //         'hue-1': '100',
-        //         'hue-2': '600',
-        //         'hue-3': 'A100'
-        //     }) .accentPalette('yellow', {
-        //     'default': 'A200'
-        // }) .warnPalette('red');
-
-        // .backgroundPalette('grey');
+        $mdThemingProvider.theme('default')
+            .primaryPalette('grey', {
+                'default': '900',
+                'hue-1': '100',
+                'hue-2': '600',
+                'hue-3': 'A100'
+            }) .accentPalette('orange', {
+            'default': '500'
+        }) .warnPalette('red');
 
     }])
 
@@ -93,16 +106,36 @@ angular.module('Warehouse', ['ui.router', 'ngSanitize'])
 
             $rootScope.state = $state;
             $rootScope.stateParams = $stateParams;
+            $rootScope.authenticated = null;
+
+            // translations.getTranslations();
 
             $rootScope.$on('$locationChangeStart', function (event, newLocation, oldLocation) {
 
                 var newPath = newLocation.split('/').slice(-1)[0];
                 var oldPath = oldLocation.split('/').slice(-1)[0];
 
-                if ( newPath === 'authenticated' ) {
-                    // pobieranie danych
+                if ($rootScope.authenticated === null) {
+
+                    $http.post('/is_authenticated').then(function successCallback(response) {
+
+                        $rootScope.authenticated = response.data.authenticated;
+                        $rootScope.username = response.data.username;
+                    });
+                }
+                else {
+
+                    if (newPath === 'login' && oldPath === 'authenticated' && $rootScope.authenticated) {
+
+                        event.preventDefault();
+                        alert('Czy na pewno chcesz opuscic aplikacje?');
+                    }
+                    else if (newPath === 'authenticated' && oldPath === 'login' && !$rootScope.authenticated) {
+
+                        event.preventDefault();
+                    }
                 }
 
             });
 
-    }]);
+        }]);

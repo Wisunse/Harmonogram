@@ -1,1 +1,31 @@
-<div>menu</div>
+<md-toolbar>
+
+  <div layout="row" layout-align="center center">
+    <md-button
+        class="md-button primary"
+        ng-class="[ {true: 'bg-top-menu__button--selected'}[state.current.name === 'management'] ]"
+        ng-click="goManagement()"
+        aria-label="">
+      Zarządzanie
+    </md-button>
+
+    <md-button
+    class="md-button primary"
+    ng-class="[ {true: 'bg-top-menu__button--selected'}[state.current.name === 'users'] ]"
+    ng-click="goUsers()"
+    aria-label="">
+      Użytkownicy
+    </md-button>
+
+    <md-button
+    class="md-button primary"
+    ng-click="goLogOut()"
+    aria-label="">
+      Wyloguj
+    </md-button>
+
+      <!--<md-button class="md-raised md-accent" ng-click="" aria-label="">Dodaj nowego użytkownika</md-button>  &lt;!&ndash; todo dodać napis !&ndash;&gt;-->
+
+  </div>
+
+</md-toolbar>

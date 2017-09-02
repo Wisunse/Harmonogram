@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Warehouse')
+angular.module('Harmonogram')
 
     .controller('MainController', ['$scope', '$http', '$state',
         function($scope, $http, $state) {

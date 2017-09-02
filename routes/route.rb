@@ -43,6 +43,8 @@ class App
         erb :menu, layout: false
       when 'management'
         erb :management, layout: false
+        when 'users'
+          erb :users, layout: false
       else
         erb :error_404, layout: false
       end
@@ -50,6 +52,23 @@ class App
       redirect '/login'
     end
   end
+
+  get '/views/dialog/:view' do
+    puts 'aaa'
+    if session[:authenticated]
+      case params[:view]
+        when 'edit_user'
+          erb :'dialog/edit_user', layout: false
+        when 'add_new_user'
+          erb :'dialog/add_new_user', layout: false
+        else
+          erb :error_404, layout: false
+      end
+    else
+      redirect '/login'
+    end
+  end
+
 
   # get '/views/modal/:view' do
   #   if session[:authenticated]
@@ -101,6 +120,11 @@ class App
     end
     response.to_json
   end
+
+  get '/all_users' do
+    Users.all_users.to_json
+  end
+
 
   get '/log_out' do
     [:authenticated, :user_data].each { |k| session.delete(k) }

@@ -23,7 +23,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rubocop (v0.49.1, ruby-2.3.4-p301) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby-progressbar (v1.8.1, ruby-2.3.4-p301) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sinatra (v1.4.8, ruby-2.3.4-p301) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="tilt (v2.0.7, ruby-2.3.4-p301) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tilt (v2.0.8, ruby-2.3.4-p301) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="unicode-display_width (v1.3.0, ruby-2.3.4-p301) [gem]" level="application" />
   </component>
 </module>

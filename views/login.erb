@@ -8,7 +8,7 @@
         <input type="text" class="form__login form-control" placeholder="login" ng-model="id" ng-keydown="$event.which === 13 && login()">
       </div>
       <div class="form-group">
-        <input type="password" class="form__password form-control" placeholder="hasło" ng-model="password" ng-keydown="$event.which === 13 && login()">
+        <input type="password" class="form__password form-control" placeholder="hasło" ng-model="password" ng-keydown="$event.which === 13 && authentication.login()">
       </div>
       <input type="button" class="btn btn-lg btn-primary form__button center-block" type="submit" value="Log in" ng-click="login()">
     </form>

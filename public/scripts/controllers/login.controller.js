@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Warehouse')
+angular.module('Harmonogram')
 
     .controller('LoginController', ['$scope', '$http', '$state', '$sce',
         function($scope, $http, $state, $sce) {
@@ -17,7 +17,7 @@ angular.module('Warehouse')
 
                         switch(response.data.status) {
                             case '1':
-                                $state.go('harmonogram_state');
+                                $state.go('management');
                                 break;
                             case '-1':
                                 alert('puste pole id, albo hasła');

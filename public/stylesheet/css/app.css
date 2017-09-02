@@ -1,0 +1,40 @@
+body {
+    background: #dcdcdc url(/img/railway-station.jpg) center no-repeat;
+}
+
+.main-view {
+     position: absolute;
+     top: 60px;
+     bottom: 35px;
+     left: 0;
+     right: 0;
+     width: 100%;
+     overflow: hidden;
+}
+
+.center {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.bg-top-menu__button--selected {
+    background: red;
+}
+
+.users {
+    position: relative;
+    width: 960px;
+    max-width: 100%;
+    padding-top: 70px;
+}
+
+.users-list {
+    /*margin: auto 0;*/
+    max-width: 100%;
+    min-height: 400px;
+    background-color: #f8f8f8;
+}

@@ -1,0 +1,43 @@
+<div class="center">
+
+  <div class="users">
+
+    <div class="users-list" layout="column" layout-align="start center">
+
+      <div layout="row" layout-align="center start">
+        <div flex="33">ID</div>
+        <div flex="33">NAZWA</div>
+        <!--<div flex="33">NOWE HASŁO</div>-->
+        <!--<div flex="33">POWTÓRZ HASŁO</div>-->
+        <!--<div flex="33">ZMIEŃ</div>-->
+        <div flex="33"></div>
+      </div>
+
+      <div ng-repeat="user in users.users track by $index" layout="row" layout-align="center start">
+
+        <div flex> {{$index+1}}</div>
+        <div flex>{{user.login}}</div>
+        <!--<div flex>-->
+          <!--<md-input-container>-->
+            <!--<label>hasło</label>-->
+            <!--<input name="hasło" ng-model="user.newPass">-->
+          <!--</md-input-container>-->
+        <!--</div>-->
+        <!--<div flex>-->
+          <!--<md-input-container>-->
+            <!--<label>powtórz hasło</label>-->
+            <!--<input name="powtórzHasło" ng-model="user.newPassAgain">-->
+            <!--</md-input-container>-->
+        <!--</div>-->
+        <div flex>
+          <md-button class="md-raised md-accent"
+                     aria-label="edytuj" ng-click="users.showEditUser(user.id, $event)">EDYTUJ</md-button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
