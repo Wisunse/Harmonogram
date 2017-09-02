@@ -13,6 +13,10 @@ angular.module('Harmonogram')
             $state.go('users');
         };
 
+        $scope.goCars = function() {
+            $state.go('cars');
+        };
+
         $scope.goLogOut = function() {
             $http.get('/log_out').then(function successCallback() {
                 $state.go('login');

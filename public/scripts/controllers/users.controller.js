@@ -23,7 +23,7 @@ angular.module('Harmonogram')
                             var data = response.data;
                             if (data === '1') {
                                 users.allUsers();
-                                $scope.closeDialog();
+                                users.closeDialog();
                             }
                             else if (response.data === '0') {
                                 //    todo tutaj zmienic zmienna w formularzu na 'haslo sie nie zgadza'

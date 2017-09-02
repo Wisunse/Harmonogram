@@ -11,6 +11,14 @@
 
     <md-button
     class="md-button primary"
+    ng-class="[ {true: 'bg-top-menu__button--selected'}[state.current.name === 'cars'] ]"
+    ng-click="goCars()"
+    aria-label="">
+      Samochody
+    </md-button>
+
+    <md-button
+    class="md-button primary"
     ng-class="[ {true: 'bg-top-menu__button--selected'}[state.current.name === 'users'] ]"
     ng-click="goUsers()"
     aria-label="">

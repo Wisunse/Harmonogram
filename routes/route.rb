@@ -43,8 +43,10 @@ class App
         erb :menu, layout: false
       when 'management'
         erb :management, layout: false
-        when 'users'
-          erb :users, layout: false
+      when 'users'
+        erb :users, layout: false
+      when 'cars'
+        erb :cars, layout: false
       else
         erb :error_404, layout: false
       end

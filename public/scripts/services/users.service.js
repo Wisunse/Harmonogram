@@ -70,11 +70,11 @@ angular.module('Harmonogram')
 
                 var confirm = $mdDialog.confirm()
                     .title()
-                    .textContent(factory.setText(3807))
-                    .ariaLabel(factory.setText(3807))
+                    .textContent('Czy na pewno chcesz usunąć to konto?')
+                    .ariaLabel('Czy na pewno chcesz usunąć to konto?')
                     .targetEvent(ev)
-                    .ok(factory.setText(735))
-                    .cancel(factory.setText(71));
+                    .ok('TAK')
+                    .cancel('ANULUJ');
 
                 $mdDialog.show(confirm).then(function() {
                     factory.deleteUser(user);

@@ -78,6 +78,20 @@ angular.module('Harmonogram', ['ui.router', 'ngSanitize', 'ngMaterial', 'ngAnima
                 }
             })
 
+            .state('cars', {
+                url: '/authenticated',
+                views: {
+                    headerView: {
+                        templateUrl: 'views/protected/menu',
+                        controller: 'MenuController'
+                    },
+                    mainView: {
+                        templateUrl: 'views/protected/cars',
+                        controller: 'CarsController'
+                    }
+                }
+            })
+
             .state('error_404', {
                 url: '/404',
                 views: {
