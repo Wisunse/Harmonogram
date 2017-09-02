@@ -31,11 +31,13 @@
         <!--</div>-->
         <div flex>
           <md-button class="md-raised md-accent"
-                     aria-label="edytuj" ng-click="users.showEditUser(user.id, $event)">EDYTUJ</md-button>
+                     aria-label="edytuj" ng-click="users.showEditUser(user, $event)">EDYTUJ</md-button>
         </div>
 
       </div>
-
+    <div>
+      <md-button class="md-primary" ng-click="users.showAddNewUser($event)">Dodaj nowego użytkownika</md-button>
+    </div>
     </div>
 
   </div>

@@ -54,7 +54,6 @@ class App
   end
 
   get '/views/dialog/:view' do
-    puts 'aaa'
     if session[:authenticated]
       case params[:view]
         when 'edit_user'
@@ -68,38 +67,6 @@ class App
       redirect '/login'
     end
   end
-
-
-  # get '/views/modal/:view' do
-  #   if session[:authenticated]
-  #     case params[:view]
-  #     when 'add_new_item'
-  #       erb :'modal/add_new_item', layout: false
-  #     when 'add_to_item'
-  #       erb :'modal/add_to_item', layout: false
-  #     when 'give_item'
-  #       erb :'modal/give_item', layout: false
-  #     when 'add_new_beneficiary'
-  #       erb :'modal/add_new_beneficiary', layout: false
-  #     when 'edit_item'
-  #       erb :'modal/edit_item', layout: false
-  #     when 'edit_beneficiary'
-  #       erb :'modal/edit_beneficiary', layout: false
-  #     when 'add_new_target'
-  #       erb :'modal/add_new_target', layout: false
-  #     when 'edit_target'
-  #       erb :'modal/edit_target', layout: false
-  #     when 'show_target_details'
-  #       erb :'modal/show_target_details', layout: false
-  #     when 'history_edit'
-  #       erb :'modal/history_edit', layout: false
-  #     else
-  #       erb :error_404, layout: false
-  #     end
-  #   else
-  #     redirect '/login'
-  #   end
-  # end
 
   get '/is_loggin' do
     { loggin: session[:authenticated], data: session[:user_data] }.to_json
@@ -125,6 +92,23 @@ class App
     Users.all_users.to_json
   end
 
+  post '/new_user' do
+    content_type :json
+    params = JSON.parse(request.body.read, symbolize_names: true)
+    Users.new_user(params[:user]).to_json
+  end
+
+  post '/edit_user' do
+    content_type :json
+    params = JSON.parse(request.body.read, symbolize_names: true)
+    Users.edit_user(params[:user]).to_json
+  end
+
+  post '/delete_user' do
+    content_type :json
+    params = JSON.parse(request.body.read, symbolize_names: true)
+    Users.delete_user(params[:user]).to_json
+  end
 
   get '/log_out' do
     [:authenticated, :user_data].each { |k| session.delete(k) }

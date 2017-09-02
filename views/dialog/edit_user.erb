@@ -1,1 +1,55 @@
-<div>cos tam</div>
+<md-dialog aria-label="Dodaj nowego użytkownika">
+  <form name="formEditUser" ng-cloak ng-submit="editUser(formEditUser)">
+
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{ users.editUser.login }}</h2> <!-- todo dodać napis -->
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="users.closeDialog()">X</md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content" layout="column">
+
+        <div layout="row">
+
+          <md-input-container>
+            <label>hasło</label>
+            <input type="password" ng-model="users.editUser.password">
+            <div class="form-warn" ng-show="passwordNotConfirm">hasła muszą być takie same</div> <!-- todo dodać napis -->
+          </md-input-container>
+          <md-input-container>
+            <label>powtórz hasło</label>
+            <input type="password" ng-model="users.editUser.password_confirm">
+            <div class="form-warn" ng-show="passwordNotConfirm">hasła muszą być takie same</div> <!-- todo dodać napis -->
+          </md-input-container>
+
+        </div>
+
+        <div layout="row">
+          <md-input-container>
+            <label>email</label>
+            <input type="email" ng-model="users.editUser.email">
+          </md-input-container>
+          <md-input-container>
+            <label>Numer Telefonu</label>
+            <input ng-model="users.editUser.phone_number">
+          </md-input-container>
+        </div>
+
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row" layout-align="space-between-center">
+      <div>
+        <md-button class="md-raised md-warn" aria-label="" ng-click="users.showDeleteUser(users.editUser, $event)">Usuń</md-button>
+      </div>
+      <div>
+        <md-button ng-click="users.closeDialog()" class="md-raised md-cornered md-primary">Zamknij</md-button>
+        <md-button type="submit" class="md-raised md-cornered md-primary">Zapisz</md-button>
+      </div>
+    </md-dialog-actions>
+
+  </form>
+</md-dialog>

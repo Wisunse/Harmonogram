@@ -1,1 +1,67 @@
-<div>cos tam</div>
+<md-dialog aria-label="Dodaj nowego użytkownika">
+  <form name="formAddNewUser" ng-cloak ng-submit="addNewUser(formAddNewUser)">
+
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Dodaj nowego użytkownika</h2> <!-- todo dodać napis -->
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="users.closeDialog()">X</md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content" layout="column">
+
+        <md-input-container>
+          <label>Nazwa użytkownika</label>
+          <input ng-model="newUser.username" required>
+        </md-input-container>
+
+        <div layout="row">
+
+          <md-input-container>
+            <label>hasło</label>
+            <input type="password" ng-model="newUser.password" required>
+            <div class="form-warn" ng-show="passwordNotConfirm">hasła muszą być takie same</div> <!-- todo dodać napis -->
+          </md-input-container>
+          <md-input-container>
+            <label>powtórz hasło</label>
+            <input type="password" ng-model="newUser.password_confirm" required>
+            <div class="form-warn" ng-show="passwordNotConfirm">hasła muszą być takie same</div> <!-- todo dodać napis -->
+          </md-input-container>
+
+        </div>
+
+        <div layout="row">
+
+          <md-input-container>
+            <label>email</label>
+            <input type="email" ng-model="newUser.email">
+          </md-input-container>
+          <md-input-container>
+            <label>Numer Telefonu</label>
+            <input ng-model="newUser.phone">
+          </md-input-container>
+
+        </div>
+
+        <!--<md-input-container>-->
+        <!--<label></label>-->
+        <!--<md-select ng-model="newUser.type" required>-->
+        <!--<md-option value="user">User</md-option> &lt;!&ndash; todo dodac napis &ndash;&gt;-->
+        <!--<md-option value="admin">Admin</md-option> &lt;!&ndash; todo dodac napis &ndash;&gt;-->
+        <!--</md-select>-->
+        <!--</md-input-container>-->
+
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="users.closeDialog()" class="md-raised md-cornered md-primary">Zamknij
+      </md-button>
+      <md-button type="submit" class="md-raised md-cornered md-primary">Dodaj
+      </md-button>
+    </md-dialog-actions>
+
+  </form>
+</md-dialog>
