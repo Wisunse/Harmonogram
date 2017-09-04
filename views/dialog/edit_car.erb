@@ -1,0 +1,36 @@
+<md-dialog aria-label="Dodaj nowy samochód">
+  <form name="formEditCar" ng-cloak ng-submit="editCar(formEditCar)">
+
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{ cars.editCar.login }}</h2> <!-- todo dodać napis -->
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cars.closeDialog()">X</md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content" layout="column">
+
+        <div layout="row">
+          <md-input-container>
+            <label>Nazwa</label>
+            <input ng-model="cars.editCar.name">
+          </md-input-container>
+        </div>
+
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row" layout-align="space-between-center">
+      <div>
+        <md-button class="md-raised md-warn" aria-label="" ng-click="cars.showDeleteCar(cars.editCar, $event)">Usuń</md-button>
+      </div>
+      <div>
+        <md-button ng-click="cars.closeDialog()" class="md-raised md-cornered md-primary">Zamknij</md-button>
+        <md-button type="submit" class="md-raised md-cornered md-primary">Zapisz</md-button>
+      </div>
+    </md-dialog-actions>
+
+  </form>
+</md-dialog>

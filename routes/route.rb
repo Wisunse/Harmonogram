@@ -62,6 +62,10 @@ class App
           erb :'dialog/edit_user', layout: false
         when 'add_new_user'
           erb :'dialog/add_new_user', layout: false
+        when 'add_new_car'
+          erb :'dialog/add_new_car', layout: false
+        when 'edit_car'
+          erb :'dialog/edit_car', layout: false
         else
           erb :error_404, layout: false
       end
@@ -94,6 +98,10 @@ class App
     Users.all_users.to_json
   end
 
+  get '/all_cars' do
+    Cars.all_cars.to_json
+  end
+
   post '/new_user' do
     content_type :json
     params = JSON.parse(request.body.read, symbolize_names: true)
@@ -110,6 +118,18 @@ class App
     content_type :json
     params = JSON.parse(request.body.read, symbolize_names: true)
     Users.delete_user(params[:user]).to_json
+  end
+
+  post '/new_car' do
+    content_type :json
+    params = JSON.parse(request.body.read, symbolize_names: true)
+    Cars.new_car(params[:car]).to_json
+  end
+
+  post '/edit_car' do
+    content_type :json
+    params = JSON.parse(request.body.read, symbolize_names: true)
+    Cars.edit_car(params[:car]).to_json
   end
 
   get '/log_out' do

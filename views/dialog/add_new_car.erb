@@ -1,0 +1,31 @@
+<md-dialog aria-label="Dodaj auto">
+  <form name="formAddNewCar" ng-cloak ng-submit="addNewCar(formAddNewCar)">
+
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Dodaj samochód</h2> <!-- todo dodać napis -->
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cars.closeDialog()">X</md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content" layout="column">
+
+        <md-input-container>
+          <label>Nazwa samochodu</label>
+          <input ng-model="newCar.name" required>
+        </md-input-container>
+
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="cars.closeDialog()" class="md-raised md-cornered md-primary">Zamknij
+      </md-button>
+      <md-button type="submit" class="md-raised md-cornered md-primary">Dodaj
+      </md-button>
+    </md-dialog-actions>
+
+  </form>
+</md-dialog>
