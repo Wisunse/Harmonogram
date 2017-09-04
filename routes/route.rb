@@ -102,6 +102,16 @@ class App
     Cars.all_cars.to_json
   end
 
+  get '/all_registry' do
+    Registry.all_registry.to_json
+  end
+
+  get '/dates_now' do
+    Registry.dates_now.to_json
+  end
+
+
+
   post '/new_user' do
     content_type :json
     params = JSON.parse(request.body.read, symbolize_names: true)
@@ -130,6 +140,12 @@ class App
     content_type :json
     params = JSON.parse(request.body.read, symbolize_names: true)
     Cars.edit_car(params[:car]).to_json
+  end
+
+  post '/month_info' do
+    content_type :json
+    params = JSON.parse(request.body.read, symbolize_names: true)
+    Registry.month_info(params).to_json
   end
 
   get '/log_out' do

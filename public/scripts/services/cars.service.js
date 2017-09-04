@@ -29,8 +29,6 @@ angular.module('Harmonogram')
             });
         };
 
-
-
         factory.showAddNewCar = function(ev) {
 
             $mdDialog.show({

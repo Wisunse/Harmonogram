@@ -14,7 +14,6 @@ class Cars
   end
 
   def self.edit_car(params)
-    puts params
     id = params[:id]
     name = params[:name]
     sql = { statement: 'UPDATE cars set name=$1 where id = $2', values: [name, id] }
