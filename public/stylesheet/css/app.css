@@ -38,3 +38,32 @@ body {
     min-height: 400px;
     background-color: #f8f8f8;
 }
+
+.management {
+    position: relative;
+    width: 90%;
+    max-width: 100%;
+    padding-top: 70px;
+}
+
+.management__brick {
+    padding: 5px;
+    width: 20px;
+    height: 50px;
+    border: solid 1px grey;
+}
+
+.management__car-name {
+    width: 100px;
+    height: 50px;
+    padding: 5px;
+}
+
+.tak {
+    background: red;
+}
+
+.nie {
+    background: green;
+}
+

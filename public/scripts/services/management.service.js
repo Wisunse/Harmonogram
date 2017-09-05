@@ -7,11 +7,13 @@ angular.module('Harmonogram')
 
     var factory = {};
     factory.buildedMonth = [];
+    factory.translateMonth = [ null, 'Styczeń','Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień']
 
     factory.datesNow = function() {
         $http.get('/dates_now').then(function successCallback(response) {
             var data = response.data;
             factory.wholeDate = data;
+            factory.daysInMonth = data.days_count;
             console.log(data)
         });
     };
@@ -29,6 +31,7 @@ angular.module('Harmonogram')
         $http.post('/month_info', sendData).then(function successCallback(response) {
             var data = response.data;
             factory.daysInMonth = data;
+            console.log('monthinfo');
             console.log(data)
         });
     };
@@ -37,7 +40,7 @@ angular.module('Harmonogram')
 
         cars.cars.forEach(function(car) {
             var readyMonth = { 'car.id': car.id, 'car_name': car.name, month: [] };
-            
+
             factory.buildedMonth.push(readyMonth);
         });
 
