@@ -1,6 +1,19 @@
 body {
-    /*background: #dcdcdc url(/img/railway-station.jpg) center no-repeat;*/
+    background: #dcdcdc url(/img/railway-station.jpg) center no-repeat;
 }
+
+.w-25 {
+    width: 25px; }
+.w-50 {
+    width: 50px; }
+.w-75 {
+    width: 75px; }
+.w-100 {
+    width: 100px; }
+.w-125 {
+    width: 125px; }
+.w-200 {
+    width: 200px; }
 
 .main-view {
      position: absolute;
@@ -26,17 +39,15 @@ body {
 }
 
 .users {
-    position: relative;
-    width: 960px;
+    width: 700px;
     max-width: 100%;
-    padding-top: 70px;
+    padding:30px;
+    margin-top: 20px;
 }
 
 .users-list {
-    /*margin: auto 0;*/
     max-width: 100%;
-    min-height: 400px;
-    background-color: #f8f8f8;
+    min-height: 300px;
 }
 
 .management {
@@ -46,11 +57,23 @@ body {
     padding-top: 70px;
 }
 
+.management__brick--header {
+    padding: 2px;
+    width: 25px;
+    height: 25px;
+    border: solid 1px grey;
+}
+
 .management__brick {
-    padding: 5px;
-    width: 30px;
+    padding: 2px;
+    width: 25px;
     height: 50px;
     border: solid 1px grey;
+}
+
+.management__brick:hover {
+    background: grey;
+    cursor: pointer;
 }
 
 .management__car-name {
@@ -58,12 +81,39 @@ body {
     height: 50px;
     padding: 5px;
 }
+.management__car-name--header {
+    width: 100px;
+    height: 0;
+    padding: 5px;
+}
+
 
 .tak {
-    background: red;
+    /*background: red;*/
 }
 
 .nie {
     background: green;
 }
 
+.row {
+    display: flex;           display: -webkit-flex;
+    flex-direction: row;     -webkit-flex-direction: row;
+    flex-grow: 0;            -webkit-flex-grow: 0;
+    flex-wrap: wrap;         -webkit-flex-wrap: wrap;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-bottom: 2px solid #e0e0e0;
+    border-collapse: collapse;
+    padding-top: 5px;
+
+}
+
+.header {
+    font-weight: bold;
+}
+
+.login {
+    width:300px;
+}

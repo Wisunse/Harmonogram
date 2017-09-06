@@ -1,44 +1,35 @@
 <div class="center">
 
   <div class="users">
+    <md-card>
 
-    <div class="users-list" layout="column" layout-align="start center">
+    <div class="users-list" layout="column" layout-align="start center" style="margin-top:20px;">
 
-      <div layout="row" layout-align="center start">
-        <div flex="33">ID</div>
-        <div flex="33">NAZWA</div>
-        <!--<div flex="33">NOWE HASŁO</div>-->
-        <!--<div flex="33">POWTÓRZ HASŁO</div>-->
-        <!--<div flex="33">ZMIEŃ</div>-->
-        <div flex="33"></div>
+      <div layout="row" layout-align="center center" class="row header">
+        <div class="w-200" layout="row" layout-align="center center"> <div>ID</div></div>
+        <div class="w-200" layout="row" layout-align="center center"><div>NAZWA</div></div>
+        <div class="w-200" layout="row" layout-align="center center"></div>
       </div>
 
-      <div ng-repeat="user in users.users track by $index" layout="row" layout-align="center start">
+      <div class="row" ng-repeat="user in users.users track by $index" layout="row" layout-align="center center">
 
-        <div flex> {{$index+1}}</div>
-        <div flex>{{user.login}}</div>
-        <!--<div flex>-->
-          <!--<md-input-container>-->
-            <!--<label>hasło</label>-->
-            <!--<input name="hasło" ng-model="user.newPass">-->
-          <!--</md-input-container>-->
-        <!--</div>-->
-        <!--<div flex>-->
-          <!--<md-input-container>-->
-            <!--<label>powtórz hasło</label>-->
-            <!--<input name="powtórzHasło" ng-model="user.newPassAgain">-->
-            <!--</md-input-container>-->
-        <!--</div>-->
-        <div flex>
+        <div class="w-200" layout="row" layout-align="center center"> <div ng-bind="$index+1"></div> </div>
+        <div class="w-200" layout="row" layout-align="center center"> <div ng-bind="user.login"></div> </div>
+        <div class="w-200" layout="row" layout-align="end end"><div>
           <md-button class="md-raised md-accent"
                      aria-label="edytuj" ng-click="users.showEditUser(user, $event)">EDYTUJ</md-button>
+          </div>
         </div>
 
       </div>
+
     <div>
-      <md-button class="md-primary" ng-click="users.showAddNewUser($event)">Dodaj nowego użytkownika</md-button>
+      <md-button class="md-raised md-accent" ng-click="users.showAddNewUser($event)" style="margin: 25px;">Dodaj nowego użytkownika</md-button>
     </div>
+
     </div>
+
+    </md-card>
 
   </div>
 

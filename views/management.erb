@@ -1,16 +1,17 @@
 <div class="center">
 
   <div class="management">
+    <md-card>
 
     <div class="users-list" layout="column" layout-align="start center">
 
       <!--{{management.registry}}-->
-      <!--<div>{{management.translateMonth[management.wholeDate.month]}}</div>-->
+      <div>{{management.translateMonth[management.wholeDate.month]}}</div>
       <!--<div>{{management.daysInMonth}}</div>-->
 
      <div layout="row">
-       <div class="management__car-name"></div>
-       <div ng-repeat="i in getNumber(management.daysInMonth) track by $index" class="management__brick">
+       <div class="management__car-name--header"></div>
+       <div ng-repeat="i in getNumber(management.daysInMonth) track by $index" class="management__brick--header">
         <div flex>{{$index+1}}</div>
       </div>
      </div>
@@ -25,16 +26,15 @@
           <!--</div>-->
         <!--</div>-->
 
-      <div ng-repeat="mArray in managementArray" layout="row" layout-align="space-around center">
-        {{mArray.car_name}}
-        <div ng-repeat="day in mArray.days" ng-click="management.showDayDetails($event, day)" class="management__brick" ng-class="day.reg_id == null ? 'tak' : 'nie'">
-          {{day.day_number}}
+        <div ng-repeat="mArray in managementArray" layout="row">
+          <div class="management__car-name" >{{mArray.car_name}}</div>
+          <div class="management__brick" ng-repeat="day in mArray.days" ng-click="management.showDayDetails($event, day)"  ng-class="day.reg_id == null ? 'tak' : 'nie'">
+            <!--{{day.day_number}}-->
+          </div>
         </div>
-      </div>
-
 
     </div>
-
+    </md-card>
   </div>
 
 </div>

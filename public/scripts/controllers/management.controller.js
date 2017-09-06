@@ -2,8 +2,8 @@
 
 angular.module('Harmonogram')
 
-    .controller('ManagementController', ['$scope', '$http', '$state', '$sce', 'management', 'cars',
-        function($scope, $http, $state, $sce, management, cars) {
+    .controller('ManagementController', ['$scope', '$http', '$state', '$sce', 'management', 'cars', '$timeout',
+        function($scope, $http, $state, $sce, management, cars,$timeout) {
 
         $scope.management = management;
         $scope.cars = cars;
@@ -53,7 +53,7 @@ angular.module('Harmonogram')
                         obj.days.push(day_obj);
 
                     }
-                    $scope.managementArray.push(obj);
+                    $timeout(function() {$scope.$apply(function () {$scope.managementArray.push(obj)})});
                     console.log($scope.managementArray);
                 });
 

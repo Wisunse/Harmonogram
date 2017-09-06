@@ -1,30 +1,32 @@
 <div class="center">
 
   <div class="users">
+    <md-card>
 
-    <div class="users-list" layout="column" layout-align="start center">
+    <div class="users-list" layout="column" layout-align="start center" style="margin-top:20px;">
 
-      <div layout="row" layout-align="center start">
-        <div flex="33">ID</div>
-        <div flex="33">NAZWA</div>
-        <div flex="33"></div>
+      <div layout="row" layout-align="center center" class="row header">
+        <div class="w-200" layout="row" layout-align="center center">ID</div>
+        <div class="w-200" layout="row" layout-align="center center">NAZWA</div>
+        <div class="w-200" layout="row" layout-align="center center"></div>
       </div>
 
-      <div ng-repeat="car in cars.cars track by $index" layout="row" layout-align="center start">
+      <div class="row" ng-repeat="car in cars.cars track by $index" layout="row" layout-align="center center">
 
-        <div flex> {{$index+1}}</div>
-        <div flex>{{car.name}}</div>
-        <div flex>
+        <div class="w-200" layout="row" layout-align="center center"> <div>{{$index+1}}</div></div>
+        <div class="w-200" layout="row" layout-align="center center"><div>{{car.name}}</div></div>
+        <div class="w-200" layout="row" layout-align="end end"><div>
           <md-button class="md-raised md-accent"
                      aria-label="edytuj" ng-click="cars.showEditCar(car, $event)">EDYTUJ</md-button>
+          </div>
         </div>
 
       </div>
       <div>
-        <md-button class="md-primary" ng-click="cars.showAddNewCar($event)">Dodaj nowy samochód</md-button>
+        <md-button class="md-raised md-accent" style="margin: 25px;" ng-click="cars.showAddNewCar($event)">Dodaj nowy samochód</md-button>
       </div>
     </div>
-
+    </md-card>
   </div>
 
 </div>

@@ -135,10 +135,10 @@ angular.module('Harmonogram', ['ui.router', 'ngSanitize', 'ngMaterial', 'ngAnima
 
                         $rootScope.authenticated = response.data.authenticated;
                         $rootScope.username = response.data.username;
-                        console.log('ads');
                             management.datesNow();
                             management.allRegistry();
                             cars.allCars();
+                            // management.colorBricks();
                     });
                 }
                 else {
