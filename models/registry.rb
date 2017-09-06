@@ -8,7 +8,7 @@ class Registry
   end
 
   def self.all_registry
-    sql = { statement: 'SELECT *  FROM registry', values: [] }
+    sql = { statement: 'SELECT *  FROM registry order by id', values: [] }
     result = Tools.sql_query(sql)
     { all_registry: result.to_a }
   end

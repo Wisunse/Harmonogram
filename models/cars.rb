@@ -1,7 +1,7 @@
 class Cars
 
   def self.all_cars
-    sql = { statement: 'SELECT *  FROM cars', values: [] }
+    sql = { statement: 'SELECT *  FROM cars order by id', values: [] }
     result = Tools.sql_query(sql)
     { all_cars: result.to_a }
   end
