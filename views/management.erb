@@ -27,7 +27,7 @@
 
       <div ng-repeat="mArray in managementArray" layout="row" layout-align="space-around center">
         {{mArray.car_name}}
-        <div ng-repeat="day in mArray.days" ng-click="showDayDetails(day)" ng-class="day.reg_id == null ? 'tak' : 'nie'">
+        <div ng-repeat="day in mArray.days" ng-click="management.showDayDetails($event, day)" class="management__brick" ng-class="day.reg_id == null ? 'tak' : 'nie'">
           {{day.day_number}}
         </div>
       </div>

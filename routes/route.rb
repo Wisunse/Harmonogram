@@ -66,6 +66,8 @@ class App
           erb :'dialog/add_new_car', layout: false
         when 'edit_car'
           erb :'dialog/edit_car', layout: false
+        when 'management_details'
+          erb :'dialog/management_details', layout: false
         else
           erb :error_404, layout: false
       end

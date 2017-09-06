@@ -10,7 +10,7 @@ angular.module('Harmonogram')
         // management.datesNow();
         // management.allRegistry();
         // cars.allCars();
-
+        $scope.managementArray = [];
 
 
         $scope.getNumber = function(num) {

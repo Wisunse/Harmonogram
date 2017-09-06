@@ -13,6 +13,10 @@ angular.module('Harmonogram')
 
     factory.translateMonth = [ null, 'Styczeń','Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień']
 
+    factory.closeDialog = function() {
+        $mdDialog.hide();
+    };
+
     factory.datesNow = function() {
         $http.get('/dates_now').then(function successCallback(response) {
             var data = response.data;
@@ -46,6 +50,23 @@ angular.module('Harmonogram')
             var readyMonth = { 'car.id': car.id, 'car_name': car.name, month: [] };
 
             factory.buildedMonth.push(readyMonth);
+        });
+
+    };
+
+    factory.showDayDetails = function(ev, day) {
+        factory.pickedDay = day;
+        $mdDialog.show({
+            controller: 'ManagementController',
+            templateUrl: 'views/dialog/management_details',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose:true,
+            fullscreen: true
+        }).then(function(answer) {
+
+        }, function() {
+
         });
 
     };
