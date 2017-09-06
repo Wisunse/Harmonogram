@@ -7,6 +7,10 @@ angular.module('Harmonogram')
 
     var factory = {};
     factory.buildedMonth = [];
+    factory.wholeDate = {month: null, year: null};
+    factory.registry = null;
+    factory.daysInMonth = null;
+
     factory.translateMonth = [ null, 'Styczeń','Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień']
 
     factory.datesNow = function() {

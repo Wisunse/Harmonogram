@@ -8,6 +8,7 @@ angular.module('Harmonogram')
     var factory = {};
 
         factory.editCar = {};
+        factory.cars = null;
 
         factory.closeDialog = function() {
             $mdDialog.hide();

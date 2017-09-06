@@ -7,35 +7,63 @@ angular.module('Harmonogram')
 
         $scope.management = management;
         $scope.cars = cars;
-        management.datesNow();
-        management.allRegistry();
-        cars.allCars();
+        // management.datesNow();
+        // management.allRegistry();
+        // cars.allCars();
+
+
 
         $scope.getNumber = function(num) {
                 return new Array(num);
         };
 
-        $scope.colorBricks = function(year, month, day, carId) {
+        $scope.colorBricks = function() {
 
-            var stringDate = '2017-09-'+day
-            var date = new Date(stringDate);
-            var result = false;
+            if(management.wholeDate.year !== null && cars.cars !== null && management.registry !== null && management.daysInMonth !== null) {
 
-            management.registry.forEach(function(reg) {
+                var year = management.wholeDate.year;
+                var month = management.wholeDate.month;
+                $scope.managementArray = [];
 
-                var dataStart = new Date(reg.data_start);
-                var dataEnd = new Date(reg.data_end);
+                cars.cars.forEach(function(car) {
 
-                // console.log('data z funkcji: '+date);
-                // console.log('data start: '+ dataStart);
-                // console.log('data_end:'+ dataEnd);
-                // console.log(date <= dataStart);
-                // console.log(date <= dataEnd);
-                if(reg.cars_id == carId && date >= dataStart && date <= dataEnd ){
-                    result = true;
-               }
-            });
-            return result;
+                    var obj = { car_id: car.id, car_name: car.name,  days: [ ] };
+
+                    for(var day = 1; day<management.daysInMonth+1; day++) {
+
+                        var stringDate = year+'-'+month+'-'+day;
+                        var date = new Date(stringDate);
+                        var matchingReg = null;
+                        management.registry.forEach(function(reg) {
+
+                            var dataStart = new Date(reg.data_start);
+                            var dataEnd = new Date(reg.data_end);
+
+                            if(reg.cars_id == car.id && date >= dataStart && date <= dataEnd ) {
+                                matchingReg = reg;
+                            }
+
+                        });
+                        var day_obj = { day_number: day, reg_id: null, data_start: null, data_end: null };
+                        if(matchingReg!== null){
+                            day_obj.reg_id = matchingReg.id;
+                            day_obj.data_start = matchingReg.data_start;
+                            day_obj.data_end = matchingReg.data_end;
+                        }
+                        obj.days.push(day_obj);
+
+                    }
+                    $scope.managementArray.push(obj);
+                    console.log($scope.managementArray);
+                });
+
+            } else {
+                setTimeout(function() { $scope.colorBricks() }, 1000);
+            }
+        };$scope.colorBricks();
+
+        $scope.showDayDetails = function(day) {
+            console.log(day);
         }
 
 

@@ -5,7 +5,7 @@
     <div class="users-list" layout="column" layout-align="start center">
 
       <!--{{management.registry}}-->
-      <div>{{management.translateMonth[management.wholeDate.month]}}</div>
+      <!--<div>{{management.translateMonth[management.wholeDate.month]}}</div>-->
       <!--<div>{{management.daysInMonth}}</div>-->
 
      <div layout="row">
@@ -15,18 +15,23 @@
       </div>
      </div>
 
-        <div ng-repeat="car in cars.cars">
-          <div layout="row">
-          <div class="management__car-name">{{car.name}}</div>
-          <div ng-repeat="i in getNumber(management.daysInMonth) track by $index"
-               class="management__brick" ng-click="addToRegistry($index, car)" >
-               <div class="tak" ng-if="colorBricks(year, month, $index, car.id)">dd</div>
-               <!--<div> </div>-->
-          </div>
+        <!--<div ng-repeat="car in cars.cars">-->
+          <!--<div layout="row">-->
+            <!--<div class="management__car-name">{{car.name}}</div>-->
+            <!--<div ng-repeat="i in getNumber(management.daysInMonth) track by $index"-->
+                 <!--class="management__brick" ng-click="addToRegistry($index, car)" >-->
+                 <!--<div class="tak" >dd</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+      <div ng-repeat="mArray in managementArray" layout="row" layout-align="space-around center">
+        {{mArray.car_name}}
+        <div ng-repeat="day in mArray.days" ng-click="showDayDetails(day)" ng-class="day.reg_id == null ? 'tak' : 'nie'">
+          {{day.day_number}}
         </div>
       </div>
-        <!--{{car}}-->
-        <!--<div ng-repeat="">-->
+
 
     </div>
 

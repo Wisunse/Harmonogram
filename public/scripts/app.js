@@ -115,8 +115,8 @@ angular.module('Harmonogram', ['ui.router', 'ngSanitize', 'ngMaterial', 'ngAnima
 
     }])
 
-    .run(['$rootScope', '$state', '$stateParams', '$http',
-        function ($rootScope, $state, $stateParams, $http) {
+    .run(['$rootScope', '$state', '$stateParams', '$http', 'management', 'cars',
+        function ($rootScope, $state, $stateParams, $http, management, cars) {
 
             $rootScope.state = $state;
             $rootScope.stateParams = $stateParams;
@@ -135,6 +135,10 @@ angular.module('Harmonogram', ['ui.router', 'ngSanitize', 'ngMaterial', 'ngAnima
 
                         $rootScope.authenticated = response.data.authenticated;
                         $rootScope.username = response.data.username;
+                        console.log('ads');
+                            management.datesNow();
+                            management.allRegistry();
+                            cars.allCars();
                     });
                 }
                 else {
