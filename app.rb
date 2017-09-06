@@ -1,3 +1,13 @@
+require 'sinatra/base'
+require 'rubygems'
+require 'bundler'
+require 'encrypted_cookie'
+require 'json'
+require 'puma'
+require 'pg'
+require 'sinatra'
+# require 'rubocop', require: false
+
 require './config/init'
 
 class App < Sinatra::Application
