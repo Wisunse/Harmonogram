@@ -150,6 +150,12 @@ class App
     Registry.month_info(params).to_json
   end
 
+  post '/new_register' do
+    content_type :json
+    params = JSON.parse(request.body.read, symbolize_names: true)
+    Registry.new_register(params[:pickedDay]).to_json
+  end
+
   get '/log_out' do
     [:authenticated, :user_data].each { |k| session.delete(k) }
     redirect '/login'

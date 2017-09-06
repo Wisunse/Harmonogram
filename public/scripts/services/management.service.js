@@ -55,8 +55,10 @@ angular.module('Harmonogram')
 
     };
 
-    factory.showDayDetails = function(ev, day) {
+    factory.showDayDetails = function(ev, day, car_id) {
         factory.pickedDay = day;
+        factory.pickedDay.car_id = car_id;
+        console.log(day);
         $mdDialog.show({
             controller: 'ManagementController',
             templateUrl: 'views/dialog/management_details',

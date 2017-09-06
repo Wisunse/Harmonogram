@@ -40,6 +40,7 @@ angular.module('Harmonogram')
                             var dataEnd = new Date(reg.data_end);
 
                             if(reg.cars_id == car.id && date >= dataStart && date <= dataEnd ) {
+
                                 matchingReg = reg;
                             }
 
@@ -54,9 +55,8 @@ angular.module('Harmonogram')
 
                     }
                     $timeout(function() {$scope.$apply(function () {$scope.managementArray.push(obj)})});
-                    console.log($scope.managementArray);
                 });
-
+                console.log($scope.managementArray);
             } else {
                 setTimeout(function() { $scope.colorBricks() }, 1000);
             }
@@ -64,7 +64,24 @@ angular.module('Harmonogram')
 
         $scope.showDayDetails = function(day) {
             console.log(day);
-        }
+        };
 
+        $scope.sendDataToRegister = function(form) {
+            if (form) {
+                var data = JSON.stringify({'pickedDay': management.pickedDay});
+                $http.post('/new_register', data).then(function successCallback(response) {
+                    // management.allRegistry();
+
+                    $http.get('/all_registry').then(function successCallback(response) {
+                        var data = response.data;
+                        management.registry = data.all_registry;
+                        $scope.colorBricks();
+                        management.closeDialog();
+                    });
+
+                });
+
+                }
+        }
 
     }]);
