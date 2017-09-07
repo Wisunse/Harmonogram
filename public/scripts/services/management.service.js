@@ -2,8 +2,8 @@
 
 angular.module('Harmonogram')
 
-.factory('management', ['$rootScope', '$http', '$state', '$mdDialog', 'cars',
-    function($rootScope, $http, $state, $mdDialog, cars) {
+.factory('management', ['$rootScope', '$http', '$state', '$mdDialog', 'cars', '$timeout',
+    function($rootScope, $http, $state, $mdDialog, cars, $timeout) {
 
     var factory = {};
     factory.buildedMonth = [];
@@ -110,8 +110,11 @@ angular.module('Harmonogram')
                         obj.days.push(day_obj);
 
                     }
-                    factory.managementArray.push(obj);
-                    console.log(factory.managementArray);
+                    $timeout(function() {
+                        $rootScope.$apply(function () {
+                            factory.managementArray.push(obj)
+                        });
+                    });
                 });
 
             } else {

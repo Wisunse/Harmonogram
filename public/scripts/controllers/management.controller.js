@@ -3,7 +3,7 @@
 angular.module('Harmonogram')
 
     .controller('ManagementController', ['$scope', '$http', '$state', '$sce', 'management', 'cars', '$timeout',
-        function($scope, $http, $state, $sce, management, cars,$timeout) {
+        function($scope, $http, $state, $sce, management, cars, $timeout) {
 
         $scope.management = management;
         $scope.cars = cars;
