@@ -2,19 +2,19 @@
 
   <div class="management">
     <md-card>
-
+    <md-content>
     <div class="users-list" layout="column" layout-align="start center">
 
       <!--{{management.registry}}-->
       <div>{{management.translateMonth[management.wholeDate.month]}}</div>
       <!--<div>{{management.daysInMonth}}</div>-->
 
-     <div layout="row">
-       <div class="management__car-name--header"></div>
-       <div ng-repeat="i in getNumber(management.daysInMonth) track by $index" class="management__brick--header">
-        <div flex>{{$index+1}}</div>
-      </div>
-     </div>
+     <!--<div layout="row">-->
+       <!--<div class="management__car-name&#45;&#45;header"></div>-->
+       <!--<div ng-repeat="i in getNumber(management.daysInMonth) track by $index" class="management__brick&#45;&#45;header">-->
+        <!--<div flex>{{$index+1}}</div>-->
+      <!--</div>-->
+     <!--</div>-->
 
         <!--<div ng-repeat="car in cars.cars">-->
           <!--<div layout="row">-->
@@ -26,15 +26,36 @@
           <!--</div>-->
         <!--</div>-->
 
-        <div ng-repeat="mArray in management.managementArray" layout="row">
-          <div class="management__car-name" >{{mArray.car_name}}</div>
+      <!--<div layout="row">-->
+        <!--<div class="management__car-name&#45;&#45;header"></div>-->
+        <!--<div ng-repeat="carName in management.managementArray track by $index" class="management__brick&#45;&#45;header">-->
+          <!--<div flex>{{carName.car_name}}</div>-->
+          <!--<div ></div>-->
+        <!--</div>-->
+      <!--</div>-->
+
+    <div layout="row">
+
+      <div>
+        <div class="management__car-lp"></div>
+        <div ng-repeat="i in getNumber(management.daysInMonth) track by $index"
+          class="management__brick-lp" ng-click="addToRegistry($index, car)" layout="column">
+          <div flex>{{$index+1}}</div>
+        </div>
+      </div>
+
+      <div ng-repeat="mArray in management.managementArray">
+        <div class="management__car-name" >{{mArray.car_name}}{{mArray.seats_number}}</div>
+        <div layout="column">
           <div class="management__brick" ng-repeat="day in mArray.days" ng-click="management.showDayDetails($event, day, mArray.car_id)"  ng-class="day.reg_id == null ? 'tak' : 'nie'">
-            <!--{{day.day_number}}-->
+            {{day.info}}
           </div>
         </div>
+      </div>
+    </div>
 
     </div>
-    </md-card>
+    </md-content>  </md-card>
   </div>
 
 </div>

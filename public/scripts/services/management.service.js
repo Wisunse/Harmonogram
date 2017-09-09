@@ -101,11 +101,12 @@ angular.module('Harmonogram')
                             }
 
                         });
-                        var day_obj = { day_number: day, reg_id: null, data_start: null, data_end: null };
-                        if(matchingReg!== null){
+                        var day_obj = { day_number: day, reg_id: null, data_start: null, data_end: null, info: null };
+                        if(matchingReg!== null) {
                             day_obj.reg_id = matchingReg.id;
                             day_obj.data_start = matchingReg.data_start;
                             day_obj.data_end = matchingReg.data_end;
+                            day_obj.info = matchingReg.info;
                         }
                         obj.days.push(day_obj);
 

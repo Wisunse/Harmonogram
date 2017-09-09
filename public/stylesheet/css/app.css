@@ -54,21 +54,33 @@ body {
     position: relative;
     width: 90%;
     max-width: 100%;
-    padding-top: 70px;
+    padding-top: 25px;
+    height:530px;
+    overflow: auto;
 }
 
 .management__brick--header {
     padding: 2px;
-    width: 25px;
+    width: 150px;
     height: 25px;
     border: solid 1px grey;
+    margin:1px;
 }
 
 .management__brick {
     padding: 2px;
-    width: 25px;
+    width: 150px;
     height: 50px;
     border: solid 1px grey;
+    margin: 1px;
+}
+
+.management__brick-lp {
+    padding: 2px;
+    width: 25px;
+    height: 56px;
+    border: solid 1px grey;
+    margin: 2px;
 }
 
 .management__brick:hover {
@@ -76,6 +88,11 @@ body {
     cursor: pointer;
 }
 
+.management__car-lp {
+    width: 25px;
+    height: 50px;
+    padding: 5px;
+}
 .management__car-name {
     width: 100px;
     height: 50px;
