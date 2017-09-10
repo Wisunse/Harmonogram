@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="16295048-7858-4f6c-b169-33af4ffdc89a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/params.rb" afterPath="$PROJECT_DIR$/config/params.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheet/css/app.css" afterPath="$PROJECT_DIR$/public/stylesheet/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/dialog/management_details.erb" afterPath="$PROJECT_DIR$/views/dialog/management_details.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/management.erb" afterPath="$PROJECT_DIR$/views/management.erb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -388,12 +385,12 @@
       <workItem from="1504946396353" duration="1399000" />
       <workItem from="1504949177788" duration="7705000" />
       <workItem from="1505038463367" duration="599000" />
-      <workItem from="1505054497315" duration="13597000" />
+      <workItem from="1505054497315" duration="14005000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111810000" />
+    <option name="totallyTimeSpent" value="112218000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="17" width="1303" height="780" extended-state="6" />
