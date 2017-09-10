@@ -26,10 +26,19 @@ class Registry
 
   def self.month_info(params)
 
-    month = params[:month]
-    days_count = days_in_month(month)
+    month = params[:month].to_i
+    year = params[:year].to_i
+    puts year
+    if month == 0
+      whole_date = Time.new
+      month = whole_date.month
+      year = whole_date.year
+    else
+      whole_date = Time.new(year, month)
+    end
+    days_count = days_in_month(month, year)
 
-    {days_count: days_count}
+    { days_count: days_count, whole_date: whole_date, year: year, month: month }
 
   end
 

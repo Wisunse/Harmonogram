@@ -2,8 +2,8 @@
 
 angular.module('Harmonogram', ['ui.router', 'ngSanitize', 'ngMaterial', 'ngAnimate', 'ngAria', 'ngMessages'])
 
-    .config(['$stateProvider', '$locationProvider', '$urlRouterProvider', '$httpProvider', '$mdThemingProvider',
-        function($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider, $mdThemingProvider) {
+    .config(['$stateProvider', '$locationProvider', '$urlRouterProvider', '$httpProvider', '$mdThemingProvider', '$mdDateLocaleProvider',
+        function($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider, $mdThemingProvider, $mdDateLocaleProvider) {
 
         $httpProvider.interceptors.push(['$injector', '$q', function ($injector, $q) {
             return {
@@ -112,7 +112,10 @@ angular.module('Harmonogram', ['ui.router', 'ngSanitize', 'ngMaterial', 'ngAnima
             }) .accentPalette('orange', {
             'default': '500'
         }) .warnPalette('red');
-
+            $mdDateLocaleProvider.months = ['Styczeń','Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień'];
+            $mdDateLocaleProvider.shortMonths = ['Sty','Lut', 'Mar', 'Kwie', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrze', 'Paź', 'Lis', 'Gru'];
+            $mdDateLocaleProvider.days = ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela'];
+            $mdDateLocaleProvider.shortDays = ['Pon', 'Wt', 'Śr', 'Czw', 'P', 'So', 'N']
     }])
 
     .run(['$rootScope', '$state', '$stateParams', '$http', 'management', 'cars',
@@ -135,7 +138,7 @@ angular.module('Harmonogram', ['ui.router', 'ngSanitize', 'ngMaterial', 'ngAnima
 
                         $rootScope.authenticated = response.data.authenticated;
                         $rootScope.username = response.data.username;
-                            management.datesNow();
+                            management.monthInfo();
                             management.allRegistry();
                             cars.allCars();
                             // management.colorBricks();

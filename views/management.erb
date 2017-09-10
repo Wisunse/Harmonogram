@@ -6,7 +6,14 @@
     <div class="users-list" layout="column" layout-align="start center">
 
       <!--{{management.registry}}-->
-      <div>{{management.translateMonth[management.wholeDate.month]}}</div>
+      <!--<div>{{management.translateMonth[management.wholeDate.month]}}</div>-->
+
+      <md-input-container>
+        <label ng-bind="setText(1036)"></label>
+        <md-select ng-model="management.selectedMonth" required ng-change="management.monthInfo()">
+          <md-option value="{{$index}}" ng-repeat="month in management.translateMonth track by $index">{{month}}</md-option> <!-- todo dodac napis -->
+        </md-select>
+      </md-input-container>
       <!--<div>{{management.daysInMonth}}</div>-->
 
      <!--<div layout="row">-->
