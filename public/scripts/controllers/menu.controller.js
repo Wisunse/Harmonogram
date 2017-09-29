@@ -2,8 +2,10 @@
 
 angular.module('Harmonogram')
 
-    .controller('MenuController', ['$scope', '$http', '$state', '$sce',
-        function($scope, $http, $state, $sce) {
+    .controller('MenuController', ['$scope', '$http', '$state', '$sce','management',
+        function($scope, $http, $state, $sce, management) {
+
+        $scope.management = management;
 
         $scope.goManagement = function() {
             $state.go('management');

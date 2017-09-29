@@ -12,31 +12,14 @@ angular.module('Harmonogram')
     factory.daysInMonth = null;
     factory.managementArray = [{ car_id: null, car_name: null,  days: []}];
     // factory.selectedMonth = 1;
-    factory.translateMonth = [ null, 'Styczeń','Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień'];
+    factory.translateMonth = [ 'Aktualny', 'Styczeń','Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień'];
 
     factory.selectedMonth = new Date().getMonth()+1;
 
-    // $rootScope.$watch(function() {
-    //     return factory.selectedMonth
-    // }, function watchCallback(newValue, oldValue) {
-    //     if(newValue !== oldValue){
-    //         factory.monthInfo()
-    //     }
-    // });
 
     factory.closeDialog = function() {
         $mdDialog.hide();
     };
-
-    // factory.datesNow = function() {
-    //     $http.get('/dates_now').then(function successCallback(response) {
-    //         var data = response.data;
-    //         factory.wholeDate = data;
-    //         factory.daysInMonth = data.days_count;
-    //         factory.selectedMonth = factory.wholeDate.month;
-    //         console.log(data)
-    //     });
-    // };
 
     factory.allRegistry = function() {
         $http.get('/all_registry').then(function successCallback(response) {
@@ -69,6 +52,12 @@ angular.module('Harmonogram')
     };
 
     factory.showDayDetails = function(ev, day, car_id) {
+
+        if (day.data_start === null) {
+            day.data_end = day.data_start = '2017'+ '-' + factory.selectedMonth + '-' + day.day_number;
+        }
+
+
         factory.pickedDay = day;
         factory.pickedDay.car_id = car_id;
         console.log(day);

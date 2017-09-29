@@ -1,6 +1,16 @@
 <md-toolbar>
 
   <div layout="row" layout-align="center center">
+
+    <div ng-if="state.current.name === 'management'" style="position:absolute;margin: 5px 0 0 -400px;">
+      <md-input-container>
+        <label ng-bind="setText(1036)"></label>
+        <md-select ng-model="management.selectedMonth" required ng-change="management.monthInfo()">
+          <md-option value="{{$index}}" ng-repeat="month in management.translateMonth track by $index">{{month}}</md-option> <!-- todo dodac napis -->
+        </md-select>
+      </md-input-container>
+    </div>
+
     <md-button
         class="md-button primary"
         ng-class="[ {true: 'bg-top-menu__button--selected'}[state.current.name === 'management'] ]"
