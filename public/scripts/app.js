@@ -138,10 +138,10 @@ angular.module('Harmonogram', ['ui.router', 'ngSanitize', 'ngMaterial', 'ngAnima
 
                         $rootScope.authenticated = response.data.authenticated;
                         $rootScope.username = response.data.username;
-                            management.monthInfo();
-                            management.allRegistry();
-                            cars.allCars();
-                            management.colorBricks();
+                            // management.monthInfo();
+                            // management.allRegistry();
+                            // cars.allCars();
+                            // management.colorBricks();
                     });
                 }
                 else {

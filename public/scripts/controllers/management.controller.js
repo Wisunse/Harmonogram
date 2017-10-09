@@ -9,12 +9,13 @@ angular.module('Harmonogram')
         $scope.cars = cars;
         $scope.managementArray = [];
 
-        // management.dateNow();
-        // cars.allCars();
-        // management.colorBricks();
+        management.monthInfo();
+        management.dateNow();
+        management.allRegistry();
+        cars.allCars();
+        $timeout(function() {management.colorBricks()}, 1000);
 
         $interval( function() {
-            // management.monthInfo();
             cars.allCars();
             management.allRegistry();
             management.colorBricks();
@@ -77,21 +78,6 @@ angular.module('Harmonogram')
         //     console.log(day);
         // };
 
-        $scope.sendDataToRegister = function(form) {
-            if (form) {
-                var data = JSON.stringify({'pickedDay': management.pickedDay});
-                $http.post('/new_register', data).then(function successCallback(response) {
 
-                    $http.get('/all_registry').then(function successCallback(response) {
-                        var data = response.data;
-                        management.registry = data.all_registry;
-                        management.colorBricks();
-                        management.closeDialog();
-                    });
-
-                });
-
-                }
-        }
 
     }]);

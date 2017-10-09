@@ -45,7 +45,6 @@ angular.module('Harmonogram')
         $http.post('/month_info', sendData).then(function successCallback(response) {
             var data = response.data;
             factory.wholeDate = data;
-
             factory.selectedMonth = factory.wholeDate.month;
             factory.daysInMonth = data.days_count;
             factory.colorBricks();
@@ -72,7 +71,7 @@ angular.module('Harmonogram')
         factory.pickedDay = day;
         factory.pickedDay.car_id = car_id;
         $mdDialog.show({
-            controller: 'ManagementController',
+            controller: 'DialogController',
             templateUrl: 'views/dialog/management_details',
             parent: angular.element(document.body),
             targetEvent: ev,
@@ -90,7 +89,6 @@ angular.module('Harmonogram')
 
             if(factory.wholeDate.year !== null && cars.cars !== null && factory.registry !== null && factory.daysInMonth !== null) {
 
-                factory.loaded = true;
                 var year = factory.wholeDate.year;
                 var month = factory.wholeDate.month;
                 factory.managementArray = [];
@@ -130,6 +128,7 @@ angular.module('Harmonogram')
                         // });
                     // });
                 });
+                factory.loaded = true;
             } else {
                 // factory.loaded = false;
                 // setTimeout(function() { factory.colorBricks() }, 2000);
@@ -155,11 +154,33 @@ angular.module('Harmonogram')
 
     factory.deleteRegister = function(pickedDay, $event) {
         var data = JSON.stringify({'picked_day': pickedDay});
+        // factory.loaded = false;
         $http.post('/delete_register', data).then(function successCallback() {
             factory.allRegistry();
-            factory.colorBricks();
+            $timeout(function() {
+                factory.colorBricks();
+            },1000);
         });
     };
 
-        return factory;
+    factory.sendDataToRegister = function(form) {
+
+        if (form) {
+            var data = JSON.stringify({'pickedDay': factory.pickedDay});
+            $http.post('/new_register', data).then(function successCallback(response) {
+
+                $http.get('/all_registry').then(function successCallback(response) {
+                    var data = response.data;
+                    factory.registry = data.all_registry;
+                    factory.colorBricks();
+                    factory.closeDialog();
+                });
+
+            });
+
+        }
+    };
+
+    return factory;
+
 }]);

@@ -97,33 +97,44 @@ class App
   end
 
   get '/all_users' do
-    Users.all_users.to_json
+    if session[:authenticated]
+      Users.all_users.to_json
+    end
   end
 
   get '/all_cars' do
-    Cars.all_cars.to_json
+    if session[:authenticated]
+      Cars.all_cars.to_json
+    end
   end
 
   get '/all_registry' do
-    Registry.all_registry.to_json
+    if session[:authenticated]
+      Registry.all_registry.to_json
+    end
   end
 
   get '/dates_now' do
-    Registry.dates_now.to_json
+    if session[:authenticated]
+      Registry.dates_now.to_json
+    end
   end
-
 
 
   post '/new_user' do
     content_type :json
     params = JSON.parse(request.body.read, symbolize_names: true)
-    Users.new_user(params[:user]).to_json
+    if session[:authenticated]
+      Users.new_user(params[:user]).to_json
+    end
   end
 
   post '/edit_user' do
     content_type :json
     params = JSON.parse(request.body.read, symbolize_names: true)
-    Users.edit_user(params[:user]).to_json
+    if session[:authenticated]
+      Users.edit_user(params[:user]).to_json
+    end
   end
 
   post '/delete_user' do
@@ -135,37 +146,49 @@ class App
   post '/new_car' do
     content_type :json
     params = JSON.parse(request.body.read, symbolize_names: true)
-    Cars.new_car(params[:car]).to_json
+    if session[:authenticated]
+      Cars.new_car(params[:car]).to_json
+    end
   end
 
   post '/edit_car' do
     content_type :json
     params = JSON.parse(request.body.read, symbolize_names: true)
-    Cars.edit_car(params[:car]).to_json
+    if session[:authenticated]
+      Cars.edit_car(params[:car]).to_json
+    end
   end
 
   post '/month_info' do
     content_type :json
     params = JSON.parse(request.body.read, symbolize_names: true)
-    Registry.month_info(params).to_json
+    if session[:authenticated]
+      Registry.month_info(params).to_json
+    end
   end
 
   post '/new_register' do
     content_type :json
     params = JSON.parse(request.body.read, symbolize_names: true)
-    Registry.new_register(params[:pickedDay], session[:user_data]).to_json
+    if session[:authenticated]
+      Registry.new_register(params[:pickedDay], session[:user_data]).to_json
+    end
   end
 
   post '/delete_car' do
     content_type :json
     params = JSON.parse(request.body.read, symbolize_names: true)
-    Cars.delete_car(params).to_json
+    if session[:authenticated]
+      Cars.delete_car(params).to_json
+    end
   end
 
   post '/delete_register' do
     content_type :json
     params = JSON.parse(request.body.read, symbolize_names: true)
-    Registry.delete_register(params).to_json
+    if session[:authenticated]
+      Registry.delete_register(params).to_json
+    end
   end
 
   get '/log_out' do
