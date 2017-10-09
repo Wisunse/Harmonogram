@@ -80,15 +80,16 @@ body {
     padding: 2px;
     width: 25px;
     height: 106px;
-    border: solid 1px grey;
+    /*border: solid 1px grey;*/
     margin: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(252, 166, 52, 0.8);
 }
 
 .management__brick:hover {
-    background: grey;
+    background: rgba(252, 166, 52, 0.8);
     cursor: pointer;
 }
 
@@ -109,7 +110,7 @@ body {
     position: fixed;
     /*margin-top: -120px;*/
     position: -webkit-sticky;
-    background: orange;
+    background-color: rgba(252, 166, 52, 0.8);
     z-index: 2;
     margin-left: 2px;
     margin-top: -65px;
@@ -125,8 +126,15 @@ body {
     /*background: red;*/
 }
 
-.nie {
-    background: green;
+.busy {
+    background-color: #c1e78e;;
+    /*color: white;*/
+    /*border: 1px solid #c1e78e!important;*/
+    /*text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;*/
+}
+
+.row--odd {
+    background: rgba(211, 211, 211, 0.4);
 }
 
 .row {

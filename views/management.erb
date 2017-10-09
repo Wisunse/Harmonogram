@@ -41,7 +41,7 @@
           <!--<div ></div>-->
         <!--</div>-->
       <!--</div>-->
-    <div style="width:83%;height:72px;background:white;position: fixed;z-index: 1"></div>
+    <!--<div style="width:83%;height:72px;background:white;position: fixed;z-index: 1"></div>-->
     <div layout="row" class="margin-top">
 
       <div>
@@ -55,8 +55,11 @@
       <div ng-repeat="mArray in management.managementArray">
         <div class="management__car-name md-accent">{{mArray.car_name}}{{mArray.seats_number}}</div>
         <div layout="column">
-          <div class="management__brick" ng-repeat="day in mArray.days" ng-click="management.showDayDetails($event, day, mArray.car_id)"  ng-class="day.reg_id == null ? 'tak' : 'nie'">
-            {{day.info}}
+          <div class="management__brick" ng-repeat="day in mArray.days track by $index" ng-click="management.showDayDetails($event, day, mArray.car_id)"  ng-class="[$index%2 == 0 ? 'row--odd' : 'null', day.reg_id == null ? 'tak' : 'busy']">
+            <div layout="column" layout-align="space-around center" style="height: 100%;">
+              <div>{{day.info}}</div>
+              <div>{{day.account}}</div>
+            </div>
           </div>
         </div>
       </div>

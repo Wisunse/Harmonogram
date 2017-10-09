@@ -8,7 +8,16 @@ class Registry
   end
 
   def self.all_registry
-    sql = { statement: 'SELECT *  FROM registry order by id', values: [] }
+    sql = { statement: '
+      SELECT registry.id,
+        registry.cars_id,
+        registry.data_start,
+        registry.data_end,
+        registry.info,
+        accounts.login as account
+      FROM registry
+      LEFT JOIN accounts on accounts.id = registry.account_id order by registry.id
+', values: [] }
     result = Tools.sql_query(sql)
     { all_registry: result.to_a }
   end
@@ -49,13 +58,15 @@ class Registry
     data_end = params[:data_end]
     info = params[:info]
     car_id = params[:car_id]
-    account_id = user_data
+    account_id = user_data.to_i
 
     if reg_id.nil?
       sql = { statement: 'INSERT INTO registry (data_start, data_end, info, cars_id, account_id) values ($1, $2, $3, $4, $5)', values: [data_start, data_end, info, car_id, account_id] }
+      puts sql
       Tools.sql_query(sql)
     else
-      sql = { statement: 'UPDATE SET data_start=$1, data_end=$2, info=$3, account_id = $4 where id = $5', values: [ data_start, data_end, info, account_id, reg_id] }
+      sql = { statement: 'UPDATE registry SET data_start=$1, data_end=$2, info=$3, account_id = $4  where id = $5', values: [ data_start, data_end, info, account_id.to_i, reg_id.to_i] }
+      puts sql
       Tools.sql_query(sql)
     end
 
