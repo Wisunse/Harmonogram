@@ -34,13 +34,12 @@
           </md-input-container>
         </div>
 
-
       </div>
     </md-dialog-content>
 
     <md-dialog-actions layout="row" layout-align="space-between-center">
       <div>
-        <md-button class="md-raised md-warn" aria-label="" ng-click="management.showDeleteUser(management.pickedDay, $event)">Usuń</md-button>
+        <md-button ng-if="management.pickedDay.reg_id != null" class="md-raised md-warn" aria-label="" ng-click="management.showDeleteRegister(management.pickedDay, $event)">Usuń</md-button>
       </div>
       <div>
         <md-button ng-click="management.closeDialog()" class="md-raised md-cornered md-primary">Zamknij</md-button>

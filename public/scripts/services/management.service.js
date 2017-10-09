@@ -136,7 +136,30 @@ angular.module('Harmonogram')
             }
         };
 
+        factory.showDeleteRegister = function(register, ev) {
 
+            var confirm = $mdDialog.confirm()
+                .title()
+                .textContent('Czy na pewno chcesz usunąć ten wpis?')
+                .ariaLabel('Czy na pewno chcesz usunąć ten wpis?')
+                .targetEvent(ev)
+                .ok('TAK')
+                .cancel('ANULUJ');
+
+            $mdDialog.show(confirm).then(function() {
+                factory.deleteRegister(register);
+            }, function() {
+
+            });
+        };
+
+    factory.deleteRegister = function(pickedDay, $event) {
+        var data = JSON.stringify({'picked_day': pickedDay});
+        $http.post('/delete_register', data).then(function successCallback() {
+            factory.allRegistry();
+            factory.colorBricks();
+        });
+    };
 
         return factory;
 }]);

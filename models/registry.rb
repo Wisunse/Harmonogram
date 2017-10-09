@@ -69,4 +69,11 @@ class Registry
 
   end
 
+  def self.delete_register(params)
+    id = params[:picked_day][:reg_id]
+    sql = { statement: 'DELETE FROM registry where id = $1', values: [id] }
+    Tools.sql_query(sql)
+
+  end
+
 end

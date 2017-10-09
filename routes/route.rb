@@ -162,6 +162,12 @@ class App
     Cars.delete_car(params).to_json
   end
 
+  post '/delete_register' do
+    content_type :json
+    params = JSON.parse(request.body.read, symbolize_names: true)
+    Registry.delete_register(params).to_json
+  end
+
   get '/log_out' do
     [:authenticated, :user_data].each { |k| session.delete(k) }
     redirect '/login'

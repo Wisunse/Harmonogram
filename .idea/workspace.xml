@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16295048-7858-4f6c-b169-33af4ffdc89a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/authentication.rb" afterPath="$PROJECT_DIR$/models/authentication.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/registry.rb" afterPath="$PROJECT_DIR$/models/registry.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/controllers/management.controller.js" afterPath="$PROJECT_DIR$/public/scripts/controllers/management.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/services/management.service.js" afterPath="$PROJECT_DIR$/public/scripts/services/management.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/route.rb" afterPath="$PROJECT_DIR$/routes/route.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/dialog/management_details.erb" afterPath="$PROJECT_DIR$/views/dialog/management_details.erb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,8 +31,8 @@
       <file leaf-file-name="route.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/route.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="85" column="30" lean-forward="false" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
+            <state relative-caret-position="500">
+              <caret line="167" column="16" lean-forward="false" selection-start-line="167" selection-start-column="16" selection-end-line="167" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -42,16 +43,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
               <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="143" column="23" lean-forward="false" selection-start-line="143" selection-start-column="23" selection-end-line="143" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -72,8 +63,18 @@
       <file leaf-file-name="management.service.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/services/management.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="92" column="38" lean-forward="false" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
+            <state relative-caret-position="490">
+              <caret line="158" column="0" lean-forward="false" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.service.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/services/users.service.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="328">
+              <caret line="23" column="19" lean-forward="true" selection-start-line="20" selection-start-column="15" selection-end-line="23" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -92,8 +93,18 @@
       <file leaf-file-name="registry.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/registry.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="522">
+              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="management_details.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/dialog/management_details.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="482">
+              <caret line="41" column="143" lean-forward="true" selection-start-line="41" selection-start-column="143" selection-end-line="41" selection-end-column="171" />
               <folding />
             </state>
           </provider>
@@ -109,21 +120,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cars.service.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/services/cars.service.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>colorBricks()</find>
       <find>users</find>
       <find>datesNow</find>
       <find>wholedate</find>
@@ -153,6 +153,7 @@
       <find>monthInfo</find>
       <find>g-cloak</find>
       <find>puts</find>
+      <find>delete</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -179,7 +180,6 @@
         <option value="$PROJECT_DIR$/models/users.rb" />
         <option value="$PROJECT_DIR$/app.rb" />
         <option value="$PROJECT_DIR$/config.ru" />
-        <option value="$PROJECT_DIR$/views/dialog/management_details.erb" />
         <option value="$PROJECT_DIR$/config/params.rb" />
         <option value="$PROJECT_DIR$/public/scripts/directives/app.directives.js" />
         <option value="$PROJECT_DIR$/views/layout.erb" />
@@ -188,12 +188,13 @@
         <option value="$PROJECT_DIR$/public/scripts/services/cars.service.js" />
         <option value="$PROJECT_DIR$/views/menu.erb" />
         <option value="$PROJECT_DIR$/public/scripts/app.js" />
-        <option value="$PROJECT_DIR$/public/scripts/services/management.service.js" />
         <option value="$PROJECT_DIR$/public/stylesheet/css/app.css" />
         <option value="$PROJECT_DIR$/views/management.erb" />
-        <option value="$PROJECT_DIR$/routes/route.rb" />
         <option value="$PROJECT_DIR$/models/authentication.rb" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/management.controller.js" />
+        <option value="$PROJECT_DIR$/views/dialog/management_details.erb" />
+        <option value="$PROJECT_DIR$/routes/route.rb" />
+        <option value="$PROJECT_DIR$/public/scripts/services/management.service.js" />
         <option value="$PROJECT_DIR$/models/registry.rb" />
       </list>
     </option>
@@ -326,6 +327,12 @@
               <item name="Harmonogram" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Harmonogram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Harmonogram" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="dialog" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -410,15 +417,16 @@
       <workItem from="1506716302059" duration="94000" />
       <workItem from="1506716414900" duration="726000" />
       <workItem from="1506749062767" duration="473000" />
-      <workItem from="1507541274901" duration="24981000" />
+      <workItem from="1507541274901" duration="25930000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146922000" />
+    <option name="totallyTimeSpent" value="147871000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1375" height="904" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17983446" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -593,13 +601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/services/users.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/controllers/login.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -668,13 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/dialog/management_details.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="30" lean-forward="false" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -783,36 +777,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/management.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#md-icon#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/route.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="85" column="30" lean-forward="false" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/authentication.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/services/management.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="92" column="38" lean-forward="false" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -825,10 +793,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/dialog/management_details.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="41" column="143" lean-forward="true" selection-start-line="41" selection-start-column="143" selection-end-line="41" selection-end-column="171" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/users.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="23" column="19" lean-forward="true" selection-start-line="20" selection-start-column="15" selection-end-line="23" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/management.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#md-icon#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/services/management.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="158" column="0" lean-forward="false" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/route.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="167" column="16" lean-forward="false" selection-start-line="167" selection-start-column="16" selection-end-line="167" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/registry.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="522">
+          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
           <folding />
         </state>
       </provider>
