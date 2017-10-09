@@ -17,15 +17,16 @@ angular.module('Harmonogram')
         factory.allCars = function() {
             $http.get('/all_cars').then(function successCallback(response) {
                 var data = response.data;
+                factory.cars = null;
                 factory.cars = data.all_cars;
             });
 
         };
 
-        factory.deleteCar = function(user) {
+        factory.deleteCar = function(car) {
 
             var data = JSON.stringify({'car': car});
-            $http.post('/delete_user', data).then(function successCallback() {
+            $http.post('/delete_car', data).then(function successCallback() {
                 factory.allCars();
             });
         };
@@ -66,7 +67,7 @@ angular.module('Harmonogram')
 
         };
 
-        factory.showDeleteCar = function(user, ev) {
+        factory.showDeleteCar = function(car, ev) {
 
             var confirm = $mdDialog.confirm()
                 .title()
@@ -77,7 +78,7 @@ angular.module('Harmonogram')
                 .cancel('ANULUJ');
 
             $mdDialog.show(confirm).then(function() {
-                factory.deleteUser(user);
+                factory.deleteCar(car);
             }, function() {
 
             });

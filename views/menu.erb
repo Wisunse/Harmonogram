@@ -2,11 +2,18 @@
 
   <div layout="row" layout-align="center center">
 
-    <div ng-if="state.current.name === 'management'" style="position:absolute;margin: 5px 0 0 -400px;">
+    <div ng-if="state.current.name === 'management'" style="position:absolute;margin: 5px 0 0 -440px;">
       <md-input-container>
-        <label ng-bind="setText(1036)"></label>
         <md-select ng-model="management.selectedMonth" required ng-change="management.monthInfo()">
           <md-option value="{{$index}}" ng-repeat="month in management.translateMonth track by $index">{{month}}</md-option> <!-- todo dodac napis -->
+        </md-select>
+      </md-input-container>
+    </div>
+
+    <div ng-if="state.current.name === 'management'" style="position:absolute;margin: 5px 0 0 -300px;">
+      <md-input-container>
+        <md-select ng-model="management.selectedYear" required ng-change="management.monthInfo()">
+          <md-option ng-value="year" ng-repeat="year in management.translateYears track by $index">{{year}}</md-option> <!-- todo dodac napis -->
         </md-select>
       </md-input-container>
     </div>

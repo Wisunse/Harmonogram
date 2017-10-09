@@ -50,7 +50,6 @@ angular.module('Harmonogram')
                         var data = JSON.stringify({'user': users.editUser});
                         $http.post('/edit_user', data).then(function successCallback(response) {
                             var data = response.data;
-                            console.log(data === '1');
                             if (data === '1') {
                                 users.allUsers();
                                 users.closeDialog();

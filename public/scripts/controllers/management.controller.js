@@ -2,16 +2,24 @@
 
 angular.module('Harmonogram')
 
-    .controller('ManagementController', ['$scope', '$http', '$state', '$sce', 'management', 'cars', '$timeout',
-        function($scope, $http, $state, $sce, management, cars, $timeout) {
+    .controller('ManagementController', ['$scope', '$http', '$state', '$sce', 'management', 'cars', '$timeout', '$interval',
+        function($scope, $http, $state, $sce, management, cars, $timeout, $interval) {
 
         $scope.management = management;
         $scope.cars = cars;
-        // management.datesNow();
-        // management.allRegistry();
-        // cars.allCars();
         $scope.managementArray = [];
 
+        // management.dateNow();
+        // cars.allCars();
+        // management.colorBricks();
+
+        $interval( function() {
+            management.monthInfo();
+            cars.allCars();
+            management.allRegistry();
+            management.colorBricks();
+            console.log('ready')
+        }, 5000);
 
         $scope.getNumber = function(num) {
                 return new Array(num);
@@ -66,9 +74,9 @@ angular.module('Harmonogram')
         //     }
         // };$scope.colorBricks();
 
-        $scope.showDayDetails = function(day) {
-            console.log(day);
-        };
+        // $scope.showDayDetails = function(day) {
+        //     console.log(day);
+        // };
 
         $scope.sendDataToRegister = function(form) {
             if (form) {

@@ -3,7 +3,7 @@
   <div class="management">
     <md-card>
     <md-content>
-    <div class="users-list" layout="column" layout-align="start center">
+    <div class="management__list" layout="column" layout-align="start center">
 
       <!--{{management.registry}}-->
       <!--<div>{{management.translateMonth[management.wholeDate.month]}}</div>-->
@@ -52,13 +52,13 @@
         </div>
       </div>
 
-      <div ng-repeat="mArray in management.managementArray">
+      <div ng-repeat="mArray in management.managementArray" >
         <div class="management__car-name md-accent">{{mArray.car_name}}{{mArray.seats_number}}</div>
         <div layout="column">
-          <div class="management__brick" ng-repeat="day in mArray.days track by $index" ng-click="management.showDayDetails($event, day, mArray.car_id)"  ng-class="[$index%2 == 0 ? 'row--odd' : 'null', day.reg_id == null ? 'tak' : 'busy']">
+          <div class="management__brick" ng-repeat="day in mArray.days track by $index" ng-click="management.showDayDetails($event, day, mArray.car_id)"  ng-class="[day.reg_id == null ? 'free' : 'busy', $index%2 == 0 && day.reg_id == null ? 'row--odd' : 'null']">
             <div layout="column" layout-align="space-around center" style="height: 100%;">
-              <div>{{day.info}}</div>
-              <div>{{day.account}}</div>
+              <div >{{day.info}}</div>
+              <div class="who_add">{{day.account}}</div>
             </div>
           </div>
         </div>

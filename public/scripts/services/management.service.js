@@ -13,8 +13,8 @@ angular.module('Harmonogram')
     factory.managementArray = [{ car_id: null, car_name: null,  days: []}];
     // factory.selectedMonth = 1;
     factory.translateMonth = [ 'Aktualny', 'Styczeń','Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień'];
+    factory.translateYears = [];
 
-    factory.selectedMonth = new Date().getMonth()+1;
 
 
     factory.closeDialog = function() {
@@ -25,12 +25,24 @@ angular.module('Harmonogram')
         $http.get('/all_registry').then(function successCallback(response) {
             var data = response.data;
             factory.registry = data.all_registry;
-            console.log(data)
         });
     };
 
+    factory.dateNow = function() {
+        $http.get('/dates_now').then(function successCallback(response) {
+            var data = response.data;
+            factory.whole_date = data.whole_date;
+            factory.selectedMonth = data.month;
+            factory.selectedYear = data.year;
+
+            for(var i=2017; i<=data.year+1;i++) {
+                factory.translateYears.push(i);
+            }
+        });
+    };factory.dateNow();
+
     factory.monthInfo = function() {
-        var sendData = JSON.stringify({'month': factory.selectedMonth, 'year': '2017' });
+        var sendData = JSON.stringify({'month': factory.selectedMonth, 'year': factory.selectedYear });
         $http.post('/month_info', sendData).then(function successCallback(response) {
             var data = response.data;
             factory.wholeDate = data;
@@ -60,7 +72,6 @@ angular.module('Harmonogram')
 
         factory.pickedDay = day;
         factory.pickedDay.car_id = car_id;
-        console.log(day);
         $mdDialog.show({
             controller: 'ManagementController',
             templateUrl: 'views/dialog/management_details',
@@ -114,17 +125,17 @@ angular.module('Harmonogram')
                         obj.days.push(day_obj);
 
                     }
-                    $timeout(function() {
-                        $rootScope.$apply(function () {
+                    // $timeout(function() {
+                        // $rootScope.$apply(function () {
                             factory.managementArray.push(obj)
-                        });
-                    });
+                        // });
+                    // });
                 });
 
             } else {
-                setTimeout(function() { factory.colorBricks() }, 1000);
+                // setTimeout(function() { factory.colorBricks() }, 1000);
             }
-        };factory.colorBricks() ;
+        };
 
 
 

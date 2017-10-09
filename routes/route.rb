@@ -156,6 +156,12 @@ class App
     Registry.new_register(params[:pickedDay], session[:user_data]).to_json
   end
 
+  post '/delete_car' do
+    content_type :json
+    params = JSON.parse(request.body.read, symbolize_names: true)
+    Cars.delete_car(params).to_json
+  end
+
   get '/log_out' do
     [:authenticated, :user_data].each { |k| session.delete(k) }
     redirect '/login'

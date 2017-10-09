@@ -41,7 +41,6 @@ angular.module('Harmonogram')
                 var data = JSON.stringify({'car': cars.editCar});
                 $http.post('/edit_car', data).then(function successCallback(response) {
                     var data = response.data;
-                    console.log(data === '1');
                     if (data === '1') {
                         cars.allCars();
                         cars.closeDialog();

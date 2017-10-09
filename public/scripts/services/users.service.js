@@ -9,11 +9,9 @@ angular.module('Harmonogram')
             factory.editUser = {};
 
             factory.allUsers = function() {
-                console.log('asd');
                 $http.get('/all_users').then(function successCallback(response) {
                     var data = response.data;
                     factory.users = data.all_users;
-                    console.log(factory.users)
                 });
 
             };

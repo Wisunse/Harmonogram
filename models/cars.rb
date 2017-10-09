@@ -21,4 +21,11 @@ class Cars
     '1'
   end
 
+  def self.delete_car(params)
+    id = params[:car][:id]
+    sql = { statement: 'DELETE FROM cars where id = $1', values: [id] }
+    Tools.sql_query(sql)
+    '1'
+  end
+
 end
