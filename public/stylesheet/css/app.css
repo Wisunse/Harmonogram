@@ -15,6 +15,7 @@ body {
 .w-200 {
     width: 200px; }
 
+
 .main-view {
      position: absolute;
      top: 60px;
@@ -59,11 +60,11 @@ body {
 
 .management {
     position: relative;
-    width: 100%;
-    max-width: 100%;
+    /*width: 100%;*/
+    /*max-width: 100%;*/
     /*padding-top: 25px;*/
     /*height:530px;*/
-    overflow: scroll;
+    overflow-x: auto;
 }
 
 .management__brick--header {

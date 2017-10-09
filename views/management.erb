@@ -1,6 +1,7 @@
 <div class="center">
+  <div class="loader" ng-if="management.loaded == false"><md-icon style="margin-top: 150px;width:100px;height:100px; color:#e49c36!important;" class="s48" md-svg-src="img/loader.svg"></md-icon></div>
+  <div class="management" ng-if="management.loaded == true">
 
-  <div class="management">
     <md-card>
     <md-content>
     <div class="management__list" layout="column" layout-align="start center">

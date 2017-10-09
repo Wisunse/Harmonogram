@@ -19,7 +19,7 @@ angular.module('Harmonogram')
             management.allRegistry();
             management.colorBricks();
             console.log('ready')
-        }, 5000);
+        }, 6000);
 
         $scope.getNumber = function(num) {
                 return new Array(num);
@@ -82,7 +82,6 @@ angular.module('Harmonogram')
             if (form) {
                 var data = JSON.stringify({'pickedDay': management.pickedDay});
                 $http.post('/new_register', data).then(function successCallback(response) {
-                    // management.allRegistry();
 
                     $http.get('/all_registry').then(function successCallback(response) {
                         var data = response.data;

@@ -14,8 +14,7 @@ angular.module('Harmonogram')
     // factory.selectedMonth = 1;
     factory.translateMonth = [ 'Aktualny', 'Styczeń','Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień'];
     factory.translateYears = [];
-
-
+    factory.loaded = false;
 
     factory.closeDialog = function() {
         $mdDialog.hide();
@@ -91,10 +90,10 @@ angular.module('Harmonogram')
 
             if(factory.wholeDate.year !== null && cars.cars !== null && factory.registry !== null && factory.daysInMonth !== null) {
 
+                factory.loaded = true;
                 var year = factory.wholeDate.year;
                 var month = factory.wholeDate.month;
                 factory.managementArray = [];
-
                 cars.cars.forEach(function(car) {
 
                     var obj = { car_id: car.id, car_name: car.name,  days: [ ] };
@@ -131,9 +130,9 @@ angular.module('Harmonogram')
                         // });
                     // });
                 });
-
             } else {
-                // setTimeout(function() { factory.colorBricks() }, 1000);
+                // factory.loaded = false;
+                // setTimeout(function() { factory.colorBricks() }, 2000);
             }
         };
 

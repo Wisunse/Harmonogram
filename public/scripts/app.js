@@ -141,7 +141,7 @@ angular.module('Harmonogram', ['ui.router', 'ngSanitize', 'ngMaterial', 'ngAnima
                             management.monthInfo();
                             management.allRegistry();
                             cars.allCars();
-                            // management.colorBricks();
+                            management.colorBricks();
                     });
                 }
                 else {
