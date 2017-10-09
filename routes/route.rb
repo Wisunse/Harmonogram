@@ -153,7 +153,7 @@ class App
   post '/new_register' do
     content_type :json
     params = JSON.parse(request.body.read, symbolize_names: true)
-    Registry.new_register(params[:pickedDay]).to_json
+    Registry.new_register(params[:pickedDay], session[:user_data]).to_json
   end
 
   get '/log_out' do

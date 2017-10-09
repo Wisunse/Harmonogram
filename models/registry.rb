@@ -42,19 +42,20 @@ class Registry
 
   end
 
-  def self.new_register(params)
+  def self.new_register(params, user_data)
 
     reg_id = params[:reg_id]
     data_start = params[:data_start]
     data_end = params[:data_end]
     info = params[:info]
     car_id = params[:car_id]
-    puts params
+    account_id = user_data
+
     if reg_id.nil?
-      sql = { statement: 'INSERT INTO registry (data_start, data_end, info, cars_id) values ($1, $2, $3, $4)', values: [data_start, data_end, info, car_id] }
+      sql = { statement: 'INSERT INTO registry (data_start, data_end, info, cars_id, account_id) values ($1, $2, $3, $4, $5)', values: [data_start, data_end, info, car_id, account_id] }
       Tools.sql_query(sql)
     else
-      sql = { statement: 'UPDATE SET data_start=$1, data_end=$2, info=$3 where id = $4', values: [ data_start, data_end, info, reg_id] }
+      sql = { statement: 'UPDATE SET data_start=$1, data_end=$2, info=$3, account_id = $4 where id = $5', values: [ data_start, data_end, info, account_id, reg_id] }
       Tools.sql_query(sql)
     end
 
