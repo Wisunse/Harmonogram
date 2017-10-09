@@ -14,11 +14,10 @@ angular.module('Harmonogram')
         // management.colorBricks();
 
         $interval( function() {
-            management.monthInfo();
+            // management.monthInfo();
             cars.allCars();
             management.allRegistry();
             management.colorBricks();
-            console.log('ready')
         }, 6000);
 
         $scope.getNumber = function(num) {

@@ -37,7 +37,6 @@ class Registry
 
     month = params[:month].to_i
     year = params[:year].to_i
-    puts year
     if month == 0
       whole_date = Time.new
       month = whole_date.month
@@ -62,11 +61,9 @@ class Registry
 
     if reg_id.nil?
       sql = { statement: 'INSERT INTO registry (data_start, data_end, info, cars_id, account_id) values ($1, $2, $3, $4, $5)', values: [data_start, data_end, info, car_id, account_id] }
-      puts sql
       Tools.sql_query(sql)
     else
       sql = { statement: 'UPDATE registry SET data_start=$1, data_end=$2, info=$3, account_id = $4  where id = $5', values: [ data_start, data_end, info, account_id.to_i, reg_id.to_i] }
-      puts sql
       Tools.sql_query(sql)
     end
 
