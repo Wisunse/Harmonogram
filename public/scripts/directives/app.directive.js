@@ -2,14 +2,23 @@
 
 angular.module('Harmonogram')
 
-.directive('fixedTableHeaders', ['$timeout', function($timeout) {
+.directive('scrollStick', function() {
+
     return {
-        restrict: 'A',
-        link: function(scope, element, attrs) {
-            $timeout(function() {
-                var container = element.parentsUntil(attrs.fixedTableHeaders);
-                element.stickyTableHeaders({ scrollableArea: container, "fixedOffset": 2 });
-            }, 0);
+        restrict: 'AE',
+        scope:{
+            data: '='
+        },
+        link: function (scope, element, attrs) {
+                var raw = element[0];
+                element.bind('scroll', function () {
+                    setInterval(function() {
+                    var left = (-raw.scrollLeft+2)+'px';
+                    angular.element(document.getElementsByClassName("management__car-name")).css({'margin-left': left});
+                });
+
+            });
         }
-    }
-}]);
+    };
+
+});
