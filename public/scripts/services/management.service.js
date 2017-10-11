@@ -33,12 +33,13 @@ angular.module('Harmonogram')
             factory.whole_date = data.whole_date;
             factory.selectedMonth = data.month;
             factory.selectedYear = data.year;
-
+            factory.translateYears = [];
+            
             for(var i=2017; i<=data.year+1;i++) {
                 factory.translateYears.push(i);
             }
         });
-    };factory.dateNow();
+    };
 
     factory.monthInfo = function() {
         var sendData = JSON.stringify({'month': factory.selectedMonth, 'year': factory.selectedYear });
