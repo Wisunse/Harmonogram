@@ -21,7 +21,13 @@ angular.module('Harmonogram')
         }, 4000);
 
         $scope.getNumber = function(num) {
-                return new Array(num);
+            return new Array(num);
         };
+
+        $scope.dayName = function(day) {
+            var days = ['ND', 'PON', 'WT', 'ŚR', 'CZW', 'PT', 'SO'];
+            var d = new Date(management.selectedYear+'-'+management.selectedMonth+'-'+day);
+            return days[d.getDay()];
+        }
 
     }]);

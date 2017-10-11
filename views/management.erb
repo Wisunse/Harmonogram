@@ -11,7 +11,9 @@
           <div>
             <div class="management__car-lp"></div>
             <div ng-repeat="i in getNumber(management.daysInMonth) track by $index"
-              class="management__brick-lp " ng-click="addToRegistry($index, car)" layout="column" ng-bind="$index+1">
+              class="management__brick-lp " ng-click="addToRegistry($index, car)" layout="column" >
+              <span >{{$index+1 < 10 ? '0'+ ($index+1) : $index+1}}</span>
+              <span>{{dayName($index+1)}}</span>
             </div>
           </div>
 

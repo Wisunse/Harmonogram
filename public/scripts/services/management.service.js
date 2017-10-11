@@ -91,6 +91,7 @@ angular.module('Harmonogram')
 
                 var year = factory.wholeDate.year;
                 var month = factory.wholeDate.month;
+                console.log(month);
                 factory.managementArray = [];
                 cars.cars.forEach(function(car) {
 
