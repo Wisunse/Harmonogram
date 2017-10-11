@@ -27,6 +27,10 @@ body {
     overflow: scroll;
 }
 
+.background-grey {
+    background: grey;
+}
+
 .center {
     width: 100%;
     display: flex;
