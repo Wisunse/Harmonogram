@@ -65,7 +65,7 @@ angular.module('Harmonogram')
     factory.showDayDetails = function(ev, day, car_id) {
 
         if (day.data_start === null) {
-            day.data_end = day.data_start = '2017'+ '-' + factory.selectedMonth + '-' + day.day_number;
+            day.data_end = day.data_start = factory.selectedYear+ '-' + factory.selectedMonth + '-' + day.day_number;
         }
 
 
@@ -168,18 +168,22 @@ angular.module('Harmonogram')
     factory.sendDataToRegister = function(form) {
 
         if (form) { console.log(factory.pickedDay);
-            var data = JSON.stringify({'pickedDay': factory.pickedDay});
-            $http.post('/new_register', data).then(function successCallback(response) {
+            if(factory.pickedDay.data_start <= factory.pickedDay.data_end) {
+                var data = JSON.stringify({'pickedDay': factory.pickedDay});
+                $http.post('/new_register', data).then(function successCallback(response) {
 
-                $http.get('/all_registry').then(function successCallback(response) {
-                    var data = response.data;
-                    factory.registry = data.all_registry;
-                    factory.colorBricks();
-                    factory.closeDialog();
+                    $http.get('/all_registry').then(function successCallback(response) {
+                        var data = response.data;
+                        factory.registry = data.all_registry;
+                        factory.colorBricks();
+                        factory.closeDialog();
+                    });
+
                 });
 
-            });
-
+            } else {
+                alert('data rozpoczęcia nie moze byc większa od daty zakończenia');
+            }
         }
     };
 
