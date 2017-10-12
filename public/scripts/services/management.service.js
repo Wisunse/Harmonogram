@@ -34,7 +34,7 @@ angular.module('Harmonogram')
             factory.selectedMonth = data.month;
             factory.selectedYear = data.year;
             factory.translateYears = [];
-            
+
             for(var i=2017; i<=data.year+1;i++) {
                 factory.translateYears.push(i);
             }
@@ -167,7 +167,7 @@ angular.module('Harmonogram')
 
     factory.sendDataToRegister = function(form) {
 
-        if (form) {
+        if (form) { console.log(factory.pickedDay);
             var data = JSON.stringify({'pickedDay': factory.pickedDay});
             $http.post('/new_register', data).then(function successCallback(response) {
 
