@@ -167,8 +167,13 @@ angular.module('Harmonogram')
 
     factory.sendDataToRegister = function(form) {
 
-        if (form) { console.log(factory.pickedDay);
-            if(factory.pickedDay.data_start <= factory.pickedDay.data_end) {
+        if (form) {
+            // console.log(factory.pickedDay);
+
+            var end_date = new Date(factory.pickedDay.data_end).toLocaleDateString();
+            var start_date = new Date(factory.pickedDay.data_start).toLocaleDateString();
+
+            if(start_date <= end_date) {
                 var data = JSON.stringify({'pickedDay': factory.pickedDay});
                 $http.post('/new_register', data).then(function successCallback(response) {
 
