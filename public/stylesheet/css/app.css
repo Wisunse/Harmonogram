@@ -16,6 +16,9 @@ body {
 .w-200 {
     width: 200px; }
 
+.md-dialog-container {
+    height: 100% !important;
+}
 
 .main-view {
     position: absolute;
