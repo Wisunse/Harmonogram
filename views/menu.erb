@@ -1,56 +1,122 @@
 <md-toolbar>
 
-  <div layout="row" layout-align="center center">
+  <div layout="row" layout-align="space-between center" md-dynamic-height md-center-tabs hide-gt-sm>
 
-    <div ng-if="state.current.name === 'management'" style="position:absolute;left: 70px;">
-      <md-input-container>
-        <md-select ng-model="management.selectedMonth" required ng-change="management.monthInfo()">
-          <md-option value="{{$index}}" ng-repeat="month in management.translateMonth track by $index">{{month}}</md-option> <!-- todo dodac napis -->
+    <md-button ng-click="openLeftMenu()">
+      <md-icon  md-svg-src="img/list.svg"></md-icon>
+    </md-button>
+
+    <div>
+      <md-input-container class="top-menu__input-wrapper" md-dynamic-height md-no-ink-bar ng-if="state.current.name === 'management'">
+        <md-select ng-model="management.selectedMonth" class="md-accent md-raised md-hue-3 top-menu__select" ng-change="management.monthInfo()">
+          <md-option value="{{$index}}" ng-repeat="month in management.translateMonth track by $index">{{month}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container class="top-menu__input-wrapper" md-dynamic-height md-no-ink-bar ng-if="state.current.name === 'management'">
+        <md-select ng-model="management.selectedYear" class="md-accent md-raised md-hue-3 top-menu__select" ng-change="management.monthInfo()">
+          <md-option ng-value="year" ng-repeat="year in management.translateYears track by $index">{{year}}</md-option>
         </md-select>
       </md-input-container>
     </div>
 
-    <div ng-if="state.current.name === 'management'" style="position:absolute;left: 260px">
-      <md-input-container>
-        <md-select ng-model="management.selectedYear" required ng-change="management.monthInfo()">
-          <md-option ng-value="year" ng-repeat="year in management.translateYears track by $index">{{year}}</md-option> <!-- todo dodac napis -->
+  </div>
+
+  <div layout="row" layout-align="space-between center" md-dynamic-height md-center-tabs hide show-gt-sm>
+
+    <div>
+      <md-input-container class="top-menu__input-wrapper" md-dynamic-height md-no-ink-bar ng-if="state.current.name === 'management'">
+        <md-select ng-model="management.selectedMonth" class="md-accent md-raised md-hue-3 top-menu__select" ng-change="management.monthInfo()">
+          <md-option value="{{$index}}" ng-repeat="month in management.translateMonth track by $index">{{month}}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container class="top-menu__input-wrapper" md-dynamic-height md-no-ink-bar ng-if="state.current.name === 'management'">
+        <md-select ng-model="management.selectedYear" class="md-accent md-raised md-hue-3 top-menu__select" ng-change="management.monthInfo()">
+          <md-option ng-value="year" ng-repeat="year in management.translateYears track by $index">{{year}}</md-option>
         </md-select>
       </md-input-container>
     </div>
 
-    <md-button
-        class="md-button primary"
-        ng-class="[ {true: 'bg-top-menu__button--selected'}[state.current.name === 'management'] ]"
-        ng-click="goManagement()"
-        aria-label="">
-      Zarządzanie
-    </md-button>
+    <div>
+      <md-button
+          class="md-button primary"
+          ng-class="[ {true: 'bg-top-menu__button--selected'}[state.current.name === 'management'] ]"
+          ng-click="goManagement()"
+          aria-label="">
+        Zarządzanie
+      </md-button>
 
-    <md-button
-    class="md-button primary"
-    ng-class="[ {true: 'bg-top-menu__button--selected'}[state.current.name === 'cars'] ]"
-    ng-click="goCars()"
-    aria-label="">
-      Samochody
-    </md-button>
+      <md-button
+      class="md-button primary"
+      ng-class="[ {true: 'bg-top-menu__button--selected'}[state.current.name === 'cars'] ]"
+      ng-click="goCars()"
+      aria-label="">
+        Samochody
+      </md-button>
 
-    <md-button
-    class="md-button primary"
-    ng-class="[ {true: 'bg-top-menu__button--selected'}[state.current.name === 'users'] ]"
-    ng-click="goUsers()"
-    aria-label="">
-      Użytkownicy
-    </md-button>
+      <md-button
+      class="md-button primary"
+      ng-class="[ {true: 'bg-top-menu__button--selected'}[state.current.name === 'users'] ]"
+      ng-click="goUsers()"
+      aria-label="">
+        Użytkownicy
+      </md-button>
 
-    <md-button
-    class="md-button primary"
-    ng-click="goLogOut()"
-    aria-label="">
-      Wyloguj
-    </md-button>
+      <md-button
+      class="md-button primary"
+      ng-click="goLogOut()"
+      aria-label="">
+        Wyloguj
+      </md-button>
+    </div>
 
-      <!--<md-button class="md-raised md-accent" ng-click="" aria-label="">Dodaj nowego użytkownika</md-button>  &lt;!&ndash; todo dodać napis !&ndash;&gt;-->
+    <div style="width:25%;"></div>
 
   </div>
 
 </md-toolbar>
+
+
+<md-sidenav-container>
+  <md-sidenav md-component-id="left" class="md-sidenav-left">
+
+    <md-list >
+      <md-button
+      class="md-button primary"
+      ng-class="[ {true: 'bg-top-menu__button--selected'}[state.current.name === 'management'] ]"
+      ng-click="goManagement()"
+      aria-label="">
+        Zarządzanie
+      </md-button>
+    </md-list>
+
+    <md-list >
+        <md-button
+          class="md-button primary"
+          ng-class="[ {true: 'bg-top-menu__button--selected'}[state.current.name === 'cars'] ]"
+          ng-click="goCars()"
+          aria-label="">
+            Samochody
+          </md-button>
+      </md-list >
+
+    <md-list >
+      <md-button
+      class="md-button primary"
+      ng-class="[ {true: 'bg-top-menu__button--selected'}[state.current.name === 'users'] ]"
+      ng-click="goUsers()"
+      aria-label="">
+        Użytkownicy
+      </md-button>
+    </md-list>
+
+    <md-list>
+      <md-button
+      class="md-button primary"
+      ng-click="goLogOut()"
+      aria-label="">
+        Wyloguj
+      </md-button>
+    </md-list >
+
+  </md-sidenav>
+</md-sidenav-container>

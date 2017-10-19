@@ -1,6 +1,34 @@
-body {
-    background: #dcdcdc url(/img/railway-station.jpg) center no-repeat;
-    overflow: hidden;
+@media all and (max-width: 960px) {
+
+    body {
+        background: grey;
+        overflow: hidden;
+    }
+
+    .top-menu__select {
+        width: 115px;
+        height: 58px;
+        background-color: white;
+        border: solid 2px black;
+        color:black;
+    }
+}
+
+@media all and (min-width: 960px) {
+
+    body {
+        background: #dcdcdc url(/img/railway-station.jpg) center no-repeat;
+        overflow: hidden;
+    }
+
+    .top-menu__select {
+        width: 160px;
+        height: 58px;
+        background-color: white;
+        border: solid 2px black;
+        color:black;
+    }
+
 }
 
 .w-25 {
@@ -178,3 +206,14 @@ body {
     margin-top: 72px;
 }
 
+
+
+.top-menu__list {
+    height: 250px;
+    border: solid;
+    overflow-y: scroll;
+}
+
+.top-menu__input-wrapper {
+    margin:0;
+}

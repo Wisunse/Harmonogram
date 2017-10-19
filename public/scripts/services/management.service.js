@@ -92,8 +92,9 @@ angular.module('Harmonogram')
 
                 var year = factory.wholeDate.year;
                 var month = factory.wholeDate.month;
-                console.log(month);
-                factory.managementArray = [];
+
+                // factory.managementArray = [];
+                var tempArray = [];
                 cars.cars.forEach(function(car) {
 
                     var obj = { car_id: car.id, car_name: car.name,  days: [ ] };
@@ -126,10 +127,11 @@ angular.module('Harmonogram')
                     }
                     // $timeout(function() {
                         // $rootScope.$apply(function () {
-                            factory.managementArray.push(obj)
+                            tempArray.push(obj);
                         // });
                     // });
                 });
+                factory.managementArray = tempArray;
                 factory.loaded = true;
             } else {
                 // factory.loaded = false;
@@ -156,7 +158,6 @@ angular.module('Harmonogram')
 
     factory.deleteRegister = function(pickedDay, $event) {
         var data = JSON.stringify({'picked_day': pickedDay});
-        // factory.loaded = false;
         $http.post('/delete_register', data).then(function successCallback() {
             factory.allRegistry();
             $timeout(function() {
@@ -168,7 +169,6 @@ angular.module('Harmonogram')
     factory.sendDataToRegister = function(form) {
 
         if (form) {
-            // console.log(factory.pickedDay);
 
             var end_date = new Date(factory.pickedDay.data_end).toLocaleDateString();
             var start_date = new Date(factory.pickedDay.data_start).toLocaleDateString();

@@ -37,7 +37,7 @@ class Registry
 
     month = params[:month].to_i
     year = params[:year].to_i
-    if month == 0
+    if month.zero?
       whole_date = Time.new
       month = whole_date.month
       year = whole_date.year

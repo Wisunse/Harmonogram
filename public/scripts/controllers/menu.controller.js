@@ -2,8 +2,8 @@
 
 angular.module('Harmonogram')
 
-    .controller('MenuController', ['$scope', '$http', '$state', '$sce','management',
-        function($scope, $http, $state, $sce, management) {
+    .controller('MenuController', ['$scope', '$http', '$state', '$sce','management', '$mdSidenav',
+        function($scope, $http, $state, $sce, management, $mdSidenav) {
 
         $scope.management = management;
 
@@ -23,7 +23,11 @@ angular.module('Harmonogram')
             $http.get('/log_out').then(function successCallback() {
                 $state.go('login');
             });
-        }
+        };
+
+        $scope.openLeftMenu = function() {
+            $mdSidenav('left').toggle();
+        };
 
 
     }]);
