@@ -3,6 +3,7 @@
     body {
         background: grey;
         overflow: hidden;
+        font-family: 'Roboto', sans-serif;
     }
 
     .top-menu__select {
@@ -19,6 +20,7 @@
     body {
         background: #dcdcdc url(/img/railway-station.jpg) center no-repeat;
         overflow: hidden;
+        font-family: 'Roboto', sans-serif;
     }
 
     .top-menu__select {
@@ -54,9 +56,6 @@
     bottom: 5px;
     left: 0;
     right: 0;
-    width: 100%;
-    height: 90%;
-    overflow: scroll;
 }
 
 .background-grey {
@@ -89,18 +88,16 @@
 }
 
 .management__list {
-    max-width: 100%;
-    min-height: 300px;
     background: grey;
+    overflow: scroll;
+    width: 100%;
+    /*height: 460px;*/
 }
 
 .management {
     position: relative;
     width: 100%;
-    /*max-width: 100%;*/
-    /*padding-top: 25px;*/
     height:100%;
-    /*overflow-x: auto;*/
     background: grey;
 }
 
@@ -206,8 +203,6 @@
     margin-top: 72px;
 }
 
-
-
 .top-menu__list {
     height: 250px;
     border: solid;
@@ -216,4 +211,24 @@
 
 .top-menu__input-wrapper {
     margin:0;
+}
+
+.new-car-names-label {
+    width: 144px;
+    height: 70px;
+    padding: 5px;
+    margin: 2px;
+    border-bottom: 1px solid black;
+    background-color:rgba(252, 166, 52, 0.8);
+    /*float: left;*/
+    flex: none;
+}
+
+.new-car-names-label-wrapper{
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+    position: sticky;
+    top: 1px;
 }

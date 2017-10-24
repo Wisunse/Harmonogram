@@ -11,13 +11,9 @@ angular.module('Harmonogram')
         },
         link: function (scope, element, attrs) {
                 var raw = element[0];
-                element.bind('scroll', function () {
-                    setInterval(function() {
-                    var left = (-raw.scrollLeft+2)+'px';
-                    angular.element(document.getElementsByClassName("management__car-name")).css({'margin-left': left});
-                });
-
-            });
+                // element.bind('scroll', function () {
+                 // angular.element(document.getElementsByClassName("new-car-names-label-wrapper"))[0].scrollLeft = raw.scrollLeft;
+            // });
         }
     };
 

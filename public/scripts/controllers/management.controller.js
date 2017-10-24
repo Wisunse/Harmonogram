@@ -2,8 +2,10 @@
 
 angular.module('Harmonogram')
 
-    .controller('ManagementController', ['$scope', '$http', '$state', '$sce', 'management', 'cars', '$timeout', '$interval',
-        function($scope, $http, $state, $sce, management, cars, $timeout, $interval) {
+    .controller('ManagementController', ['$scope', '$http', '$state', '$sce', 'management', 'cars', '$timeout', '$interval', '$window',
+        function($scope, $http, $state, $sce, management, cars, $timeout, $interval, $window) {
+
+        $scope.managementHeight = $window.innerHeight - 70;
 
         $scope.management = management;
         $scope.cars = cars;

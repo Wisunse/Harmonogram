@@ -1,7 +1,9 @@
 <div ui-view="headerView"></div>
 
 <div class="main-wrapper">
-  <div ui-view="mainView" scroll-stick class="main-view" ng-class="{'background-grey':state.current.name === 'management'}"></div>
+  <div ui-view="mainView"
+       ng-class="{'background-grey':state.current.name === 'management'}"
+       class="main-view main-view__inside"></div>
 </div>
 
 <div ui-view="errorView"></div>

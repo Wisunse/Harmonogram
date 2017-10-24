@@ -6,32 +6,57 @@
       <md-icon  md-svg-src="img/list.svg"></md-icon>
     </md-button>
 
-    <div>
-      <md-input-container class="top-menu__input-wrapper" md-dynamic-height md-no-ink-bar ng-if="state.current.name === 'management'">
-        <md-select ng-model="management.selectedMonth" class="md-accent md-raised md-hue-3 top-menu__select" ng-change="management.monthInfo()">
-          <md-option value="{{$index}}" ng-repeat="month in management.translateMonth track by $index">{{month}}</md-option>
+    <div ng-if="state.current.name === 'management'">
+      <md-input-container class="top-menu__input-wrapper"
+                          md-dynamic-height
+                          md-no-ink-bar>
+        <md-select ng-model="management.selectedMonth"
+                   class="md-accent md-raised md-hue-3 top-menu__select"
+                   ng-change="management.monthInfo()">
+          <md-option value="{{$index}}"
+                     ng-repeat="month in management.translateMonth track by $index">{{month}}</md-option>
         </md-select>
       </md-input-container>
-      <md-input-container class="top-menu__input-wrapper" md-dynamic-height md-no-ink-bar ng-if="state.current.name === 'management'">
-        <md-select ng-model="management.selectedYear" class="md-accent md-raised md-hue-3 top-menu__select" ng-change="management.monthInfo()">
-          <md-option ng-value="year" ng-repeat="year in management.translateYears track by $index">{{year}}</md-option>
+      <md-input-container class="top-menu__input-wrapper"
+                          md-dynamic-height
+                          md-no-ink-bar>
+        <md-select ng-model="management.selectedYear"
+                   class="md-accent md-raised md-hue-3 top-menu__select"
+                   ng-change="management.monthInfo()">
+          <md-option ng-value="year"
+                     ng-repeat="year in management.translateYears track by $index">{{year}}</md-option>
         </md-select>
       </md-input-container>
     </div>
 
   </div>
 
-  <div layout="row" layout-align="space-between center" md-dynamic-height md-center-tabs hide show-gt-sm>
+  <div layout="row"
+       layout-align="space-between center"
+       md-dynamic-height
+       md-center-tabs hide show-gt-sm style="height:64px;">
 
-    <div>
-      <md-input-container class="top-menu__input-wrapper" md-dynamic-height md-no-ink-bar ng-if="state.current.name === 'management'">
-        <md-select ng-model="management.selectedMonth" class="md-accent md-raised md-hue-3 top-menu__select" ng-change="management.monthInfo()">
-          <md-option value="{{$index}}" ng-repeat="month in management.translateMonth track by $index">{{month}}</md-option>
+    <div style="width:25%;" ng-if="state.current.name != 'management'"></div>
+
+    <div ng-if="state.current.name === 'management'">
+      <md-input-container class="top-menu__input-wrapper"
+                          md-dynamic-height
+                          md-no-ink-bar>
+        <md-select ng-model="management.selectedMonth"
+                   class="md-accent md-raised md-hue-3 top-menu__select"
+                   ng-change="management.monthInfo()">
+          <md-option value="{{$index}}"
+                     ng-repeat="month in management.translateMonth track by $index">{{month}}</md-option>
         </md-select>
       </md-input-container>
-      <md-input-container class="top-menu__input-wrapper" md-dynamic-height md-no-ink-bar ng-if="state.current.name === 'management'">
-        <md-select ng-model="management.selectedYear" class="md-accent md-raised md-hue-3 top-menu__select" ng-change="management.monthInfo()">
-          <md-option ng-value="year" ng-repeat="year in management.translateYears track by $index">{{year}}</md-option>
+      <md-input-container class="top-menu__input-wrapper"
+                          md-dynamic-height
+                          md-no-ink-bar>
+        <md-select ng-model="management.selectedYear"
+                   class="md-accent md-raised md-hue-3 top-menu__select"
+                   ng-change="management.monthInfo()">
+          <md-option ng-value="year"
+                     ng-repeat="year in management.translateYears track by $index">{{year}}</md-option>
         </md-select>
       </md-input-container>
     </div>
