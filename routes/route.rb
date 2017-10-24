@@ -1,4 +1,5 @@
 class App
+  $deployment = 'production'
   def check_login!
     halt 401 unless session[:authenticated]
   end

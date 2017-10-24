@@ -32,23 +32,30 @@
     <script src="scripts/libs/angular-messages.min.js"></script>
     <script src="scripts/libs/angular-material.min.js"></script>
 
-    <script src="scripts/app.js"></script>
+  <% if $deployment == 'production' %>
 
-    <script src="scripts/directives/app.directive.js"></script>
+    <script src="scripts/application.min.js"></script>
 
-    <script src="scripts/services/app.service.js"></script>
-    <script src="scripts/services/users.service.js"></script>
-    <script src="scripts/services/cars.service.js"></script>
-    <script src="scripts/services/management.service.js"></script>
+  <% else %>
 
-    <script src="scripts/controllers/main.controller.js"></script>
-    <script src="scripts/controllers/login.controller.js"></script>
-    <script src="scripts/controllers/management.controller.js"></script>
-    <script src="scripts/controllers/menu.controller.js"></script>
-    <script src="scripts/controllers/users.controller.js"></script>
-    <script src="scripts/controllers/cars.controller.js"></script>
-    <script src="scripts/controllers/dialog.controller.js"></script>
+    <script src="scripts/dev/app.js"></script>
 
+    <script src="scripts/dev/directives/app.directive.js"></script>
+
+    <script src="scripts/dev/services/app.service.js"></script>
+    <script src="scripts/dev/services/users.service.js"></script>
+    <script src="scripts/dev/services/cars.service.js"></script>
+    <script src="scripts/dev/services/management.service.js"></script>
+
+    <script src="scripts/dev/controllers/main.controller.js"></script>
+    <script src="scripts/dev/controllers/login.controller.js"></script>
+    <script src="scripts/dev/controllers/management.controller.js"></script>
+    <script src="scripts/dev/controllers/menu.controller.js"></script>
+    <script src="scripts/dev/controllers/users.controller.js"></script>
+    <script src="scripts/dev/controllers/cars.controller.js"></script>
+    <script src="scripts/dev/controllers/dialog.controller.js"></script>
+
+  <% end %>
 
 
 
